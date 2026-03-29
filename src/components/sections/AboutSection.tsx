@@ -31,7 +31,7 @@ export default function AboutSection() {
                 style={{ boxShadow: "0 2px 4px rgba(11,43,107,0.04),0 8px 16px rgba(11,43,107,0.08),0 24px 48px rgba(11,43,107,0.12),0 48px 96px rgba(11,43,107,0.06)" }}
               />
               {/* Years badge */}
-              <div className="absolute -bottom-3 -right-3 sm:-bottom-5 sm:-right-5 md:-bottom-6 md:-right-6 rounded-2xl bg-white px-4 py-3 sm:px-5 sm:py-4 z-20" style={{ boxShadow: "0 4px 6px rgba(11,43,107,0.04),0 12px 28px rgba(11,43,107,0.10)", border: "1px solid rgba(11,43,107,0.08)" }}>
+              <div className="absolute -top-3 -right-3 sm:-top-5 sm:-right-5 md:-top-6 md:-right-6 rounded-2xl bg-white px-4 py-3 sm:px-5 sm:py-4 z-20 transition-transform duration-500 hover:-translate-y-1" style={{ boxShadow: "0 4px 6px rgba(11,43,107,0.04),0 12px 28px rgba(11,43,107,0.10)", border: "1px solid rgba(11,43,107,0.08)" }}>
                 <p className="font-display font-bold leading-none text-[2.2rem] sm:text-[2.8rem]" style={{ letterSpacing: "-0.05em", color: "#0f172a" }}>15+</p>
                 <p className="mt-1 font-body text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground md:text-[9.5px]">Years Experience</p>
               </div>

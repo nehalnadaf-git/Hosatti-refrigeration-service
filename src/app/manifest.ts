@@ -17,8 +17,8 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "en-IN",
     dir: "ltr",
     icons: [
-      { src: "/Jameer/Jameer.webp", sizes: "192x192", type: "image/webp", purpose: "any" },
-      { src: "/Jameer/Jameer.webp", sizes: "512x512", type: "image/webp", purpose: "maskable" },
+      { src: "/PWA image/Jameer PWA.webp", sizes: "192x192", type: "image/webp", purpose: "any" },
+      { src: "/PWA image/Jameer PWA.webp", sizes: "512x512", type: "image/webp", purpose: "maskable" },
     ],
     screenshots: [
       {
@@ -40,14 +40,14 @@ export default function manifest(): MetadataRoute.Manifest {
         short_name: "AC Repair",
         description: "Book an AC repair via WhatsApp",
         url: "/services/ac-not-cooling-repair",
-        icons: [{ src: "/Jameer/Jameer.webp", sizes: "96x96", type: "image/webp" }],
+        icons: [{ src: "/PWA image/Jameer PWA.webp", sizes: "96x96", type: "image/webp" }],
       },
       {
         name: "Book Fridge Repair",
         short_name: "Fridge Repair",
         description: "Book a refrigerator repair via WhatsApp",
         url: "/services/refrigerator-not-cooling-repair",
-        icons: [{ src: "/Jameer/Jameer.webp", sizes: "96x96", type: "image/webp" }],
+        icons: [{ src: "/PWA image/Jameer PWA.webp", sizes: "96x96", type: "image/webp" }],
       },
     ],
   };

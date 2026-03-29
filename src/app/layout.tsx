@@ -107,10 +107,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/Jameer/Jameer.webp", type: "image/webp" },
+      { url: "/PWA image/Jameer PWA.webp", type: "image/webp" },
     ],
     apple: [
-      { url: "/Jameer/Jameer.webp", type: "image/webp" },
+      { url: "/PWA image/Jameer PWA.webp", type: "image/webp" },
     ],
   },
   manifest: "/manifest.webmanifest",
