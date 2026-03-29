@@ -9,15 +9,22 @@ const allBrands = [
 ];
 
 function BrandPill({ name }: { name: string }) {
-  return <span className="brand-pill">{name}</span>;
+  return (
+    <div className="flex items-center gap-6 sm:gap-10 mx-3 sm:mx-5 group cursor-default select-none">
+      <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-foreground/15 transition-all duration-500 group-hover:scale-[1.8] group-hover:bg-yellow-400 shadow-[0_0_10px_rgba(245,166,35,0)] group-hover:shadow-[0_0_12px_rgba(245,166,35,0.6)]"></span>
+      <span className="font-body text-[1.1rem] sm:text-[1.25rem] font-extrabold uppercase tracking-[0.15em] text-foreground/[0.22] transition-all duration-500 group-hover:text-foreground/[0.85] group-hover:-translate-y-0.5">
+        {name}
+      </span>
+    </div>
+  );
 }
 
-function MarqueeRow({ brands, speed = 60 }: { brands: string[]; speed?: number }) {
+function MarqueeRow({ brands, speed = 80 }: { brands: string[]; speed?: number }) {
   const tiles = [...brands, ...brands, ...brands, ...brands];
   return (
-    <div className="relative bg-white/60 backdrop-blur-md border-y border-border/40 shadow-[0_4px_30px_rgba(0,0,0,0.03)] py-5 my-8">
+    <div className="relative w-full py-6 mt-4 md:mt-8 overflow-hidden">
       <div className="marquee-viewport">
-        <div className="marquee-track" style={{ "--marquee-speed": `${speed}s` } as React.CSSProperties}>
+        <div className="marquee-track flex w-max items-center" style={{ "--marquee-speed": `${speed}s` } as React.CSSProperties}>
           {tiles.map((name, i) => <BrandPill key={`${name}-${i}`} name={name} />)}
         </div>
       </div>

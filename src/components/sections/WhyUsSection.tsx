@@ -1,6 +1,6 @@
 // src/components/sections/WhyUsSection.tsx
 import Image from "next/image";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Award } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const items = [
@@ -49,16 +49,44 @@ export default function WhyUsSection() {
 
         {/* Image Column */}
         <ScrollReveal delay={0.15} className="flex items-center justify-center order-1 md:order-2">
-          <div className="relative w-full max-w-[280px] sm:max-w-[360px] md:max-w-[420px] mt-6 sm:mt-0">
-            <div className="absolute -inset-3 sm:-inset-4 rounded-[1.5rem] sm:rounded-[2rem] bg-gradient-to-tr from-yellow-400/12 to-blue-900/6 blur-xl sm:blur-2xl" />
-            <div className="absolute -top-1 -left-1 sm:-top-2 sm:-left-2 h-8 w-8 sm:h-12 sm:w-12 border-t-2 border-l-2 border-yellow-400/40 rounded-tl-2xl" />
-            <div className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 h-8 w-8 sm:h-12 sm:w-12 border-b-2 border-r-2 border-yellow-400/40 rounded-br-2xl" />
-            <Image src="/Why choose us image/Why choose us.webp" alt="Hosatti Refrigeration Service expert technician at work in Dharwad" width={420} height={420} className="relative rounded-[1.25rem] sm:rounded-[1.65rem] object-cover object-center shadow-2xl w-full" loading="lazy" />
-            <div className="absolute -top-4 -left-3 sm:-top-5 sm:-left-5 md:-top-6 md:-left-6 rounded-xl sm:rounded-2xl px-4 py-3 sm:px-5 sm:py-3.5 shadow-2xl border border-white/70 glass-light z-20">
-              <p className="font-display text-[2.2rem] sm:text-[2.6rem] font-bold tracking-[-0.04em] leading-none md:text-[3rem]" style={{ color: "#0f172a" }}>15+</p>
-              <div className="mt-1 h-[1.5px] w-full bg-gradient-to-r from-[#0f172a]/30 to-transparent" />
-              <p className="mt-1 font-body text-[8px] sm:text-[9px] font-semibold text-muted-foreground tracking-[0.18em] uppercase md:text-[10px]">Years of Service</p>
+          <div className="relative w-full max-w-[280px] sm:max-w-[360px] md:max-w-[420px] mt-8 sm:mt-0">
+            {/* Enhanced background glows */}
+            <div className="absolute -inset-4 sm:-inset-6 rounded-[2rem] sm:rounded-[2.5rem] bg-gradient-to-tr from-yellow-400/15 via-transparent to-blue-900/10 blur-[24px] sm:blur-[32px] -z-10" />
+            
+            {/* Offset architectural frame layer */}
+            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 w-full h-full rounded-[1.5rem] sm:rounded-[2rem] border border-border/60 bg-white/20 -z-10 transition-transform duration-500" />
+
+            {/* Main Image Wrapper */}
+            <div className="relative rounded-[1.25rem] sm:rounded-[1.75rem] overflow-hidden shadow-[0_20px_60px_rgba(11,43,107,0.15)] outline outline-1 outline-white/80 outline-offset-[-1px] group">
+              {/* Subtle hover zoom */}
+              <div className="absolute inset-0 bg-navy/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none" />
+              <Image 
+                src="/Why choose us image/Why choose us.webp" 
+                alt="Hosatti Refrigeration Service expert technician at work in Dharwad" 
+                width={420} 
+                height={460} 
+                className="relative object-cover object-center w-full transition-transform duration-1000 group-hover:scale-[1.03]" 
+                loading="lazy" 
+              />
             </div>
+
+            {/* Premium Animated Floating Badge */}
+            <div className="absolute -top-6 -left-4 sm:-top-8 sm:-left-8 flex items-center gap-3 sm:gap-4 rounded-2xl sm:rounded-[1.25rem] px-4 py-3 sm:px-5 sm:py-4 shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-white/80 backdrop-blur-xl bg-white/85 z-20 animate-[float_5s_ease-in-out_infinite]">
+              {/* Icon Container */}
+              <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400/20 to-yellow-400/5 border border-yellow-400/20 shadow-inner">
+                <Award className="h-5 w-5 sm:h-6 sm:w-6" style={{ color: "hsl(37,90%,50%)" }} />
+              </div>
+              
+              <div className="flex flex-col">
+                <p className="font-display text-[1.6rem] sm:text-[2rem] font-bold tracking-tight leading-none bg-gradient-to-br from-yellow-600 to-yellow-500 bg-clip-text text-transparent drop-shadow-sm">
+                  15+
+                </p>
+                <p className="mt-0.5 font-body text-[8.5px] sm:text-[10px] font-bold text-navy tracking-[0.2em] uppercase">
+                  Years of Service
+                </p>
+              </div>
+            </div>
+
           </div>
         </ScrollReveal>
       </div>
