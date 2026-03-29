@@ -81,18 +81,17 @@ export default function HeroSection({ onBookService }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* Refined Wave Divider */}
-      <div className="absolute bottom-[-1px] left-0 right-0 z-20 pointer-events-none overflow-hidden">
+      {/* Wave bottom */}
+      <div className="absolute bottom-[-1.5px] left-0 right-0 z-20 pointer-events-none overflow-visible">
         <svg 
-          viewBox="0 0 1440 120" 
+          viewBox="0 0 1440 80" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg" 
-          className="w-full block" 
+          className="w-full block scale-y-[1.05] translate-y-[0.5px]" 
           preserveAspectRatio="none"
-          style={{ height: "clamp(40px, 8vw, 100px)" }}
         >
           <path 
-            d="M0 120L0 40C320 -15 1120 -15 1440 40V120H0Z" 
+            d="M0 80L48 72C96 64 192 48 288 42C384 36 480 40 576 46C672 52 768 60 864 62C960 64 1056 60 1152 54C1248 48 1344 40 1392 36L1440 32V80H0Z" 
             fill="hsl(220, 30%, 98%)" 
           />
         </svg>
