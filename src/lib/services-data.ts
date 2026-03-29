@@ -1,11 +1,13 @@
 // src/lib/services-data.ts
+export type ServiceCategory = "refrigerator" | "air-conditioner" | "air-cooler" | "washing-machine";
+
 export interface Service {
   id: string;
   slug: string;
   name: string;
   shortDesc: string;
   fullDesc: string;
-  category: "refrigerator" | "air-conditioner" | "air-cooler" | "washing-machine";
+  category: ServiceCategory;
   categoryLabel: string;
   image: string;
   metaTitle: string;
