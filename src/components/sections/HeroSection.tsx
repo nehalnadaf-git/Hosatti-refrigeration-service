@@ -73,8 +73,7 @@ export default function HeroSection({ onBookService }: HeroSectionProps) {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/30" style={{ animationDuration: "2s" }} />
               <span className="relative text-[14px] sm:text-[16px]">📞</span>
             </span>
-            <span className="sm:hidden">Call Now</span>
-            <span className="hidden sm:inline">{BUSINESS.phone}</span>
+            <span>Call Now</span>
             {/* Hover overlay */}
             <span className="absolute inset-0 bg-white/0 transition-all duration-300 group-hover:bg-white/8 rounded-xl" />
           </a>

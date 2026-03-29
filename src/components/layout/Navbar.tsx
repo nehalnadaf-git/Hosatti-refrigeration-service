@@ -183,7 +183,7 @@ export default function Navbar() {
                 aria-label="Call now"
               >
                 <Phone className="h-3.5 w-3.5" />
-                <span className="hidden xl:inline">{BUSINESS.phone}</span>
+                <span className="hidden xl:inline">Call Now</span>
               </a>
 
               {/* Divider */}
@@ -364,7 +364,7 @@ export default function Navbar() {
             }}
           >
             <Phone className="h-4 w-4" />
-            {BUSINESS.phone}
+            Call Now
           </a>
         </div>
       </div>
