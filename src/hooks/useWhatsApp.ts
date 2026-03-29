@@ -10,7 +10,7 @@ export function useWhatsApp() {
 
   const openServiceChat = (serviceName: string) => {
     openChat(
-      `Hello Hosatti Refrigeration, I would like to book a service for ${serviceName}.`
+      `Hello Hosatti Refrigeration, I would like to book a service for *${serviceName}*.`
     );
   };
 

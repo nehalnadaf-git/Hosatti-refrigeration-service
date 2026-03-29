@@ -98,7 +98,7 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
   const handleClose = () => { reset(); onClose(); };
 
   const chatDirectly = () => {
-    window.open(buildWhatsAppURL("Hello Hosatti Refrigeration Service! 👋\n\nI need help with an appliance repair."), "_blank", "noopener,noreferrer");
+    window.open(buildWhatsAppURL("Hello Hosatti Refrigeration Service!\n\nI need help with an appliance repair."), "_blank", "noopener,noreferrer");
     handleClose();
   };
 
@@ -114,11 +114,11 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
 
   const bookService = () => {
     const prob = [...selectedProblems, extraNote].filter(Boolean).join(", ");
-    const modelLine = model ? `\nModel/Appliance: ${model}` : "";
+    const modelLine = model ? `\n*Model/Appliance:* ${model}` : "";
     const applianceLine = appliance?.id === "other"
-      ? `\nAppliance: Other — ${model || "Not specified"}`
-      : `\nAppliance: ${appliance?.label}${modelLine}`;
-    const msg = `Hello Hosatti Refrigeration Service! 👋\n\nI'd like to book a repair service.\n\nName: ${name}\nPhone: ${phone}${applianceLine}\nProblem(s): ${prob || "Not specified"}\n\nPlease let me know the available slots. Thank you!`;
+      ? `\n*Appliance:* Other — ${model || "Not specified"}`
+      : `\n*Appliance:* ${appliance?.label}${modelLine}`;
+    const msg = `Hello Hosatti Refrigeration Service!\n\nI'd like to book a repair service.\n\n*Name:* ${name}\n*Phone:* ${phone}${applianceLine}\n*Problem(s):* ${prob || "Not specified"}\n\nPlease let me know the available slots. Thank you!`;
     window.open(buildWhatsAppURL(msg), "_blank", "noopener,noreferrer");
     handleClose();
   };
