@@ -4,7 +4,7 @@ import { ShieldCheck, Wrench, Package, ThumbsUp } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
 const highlights = [
-  { icon: ShieldCheck, label: "Certified Technicians", sub: "Trained & verified experts" },
+  { icon: ShieldCheck, label: "Expert Technicians", sub: "Trained & verified experts" },
   { icon: Wrench,      label: "All Brands Serviced",   sub: "LG, Samsung, IFB & more" },
   { icon: Package,     label: "Genuine Spare Parts",   sub: "Only authentic components" },
   { icon: ThumbsUp,    label: "Satisfaction Assured",  sub: "Quality service guaranteed" },
