@@ -140,15 +140,20 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
   return (
     <Dialog open={open} onOpenChange={(v) => !v && handleClose()}>
       <DialogContent
-        className="p-0 border-0 rounded-3xl overflow-hidden w-[calc(100%-2.5rem)] sm:w-full sm:max-w-[500px] max-h-[90vh] sm:max-h-[92vh] [&>button.absolute]:hidden"
-        style={{ background: C.bg, boxShadow: C.shadow }}
+        className="p-0 border-0 overflow-hidden w-full max-w-full !bottom-0 !top-auto !translate-y-0 !translate-x-0 !left-0 !rounded-none !rounded-t-[2rem] sm:!bottom-auto sm:!top-1/2 sm:!-translate-y-1/2 sm:!-translate-x-1/2 sm:!left-1/2 sm:!rounded-3xl sm:!max-w-[500px] max-h-[94vh] sm:max-h-[92vh] [&>button.absolute]:hidden shadow-[0_-8px_40px_rgba(0,0,0,0.12)] sm:shadow-[0_32px_80px_rgba(11,43,107,0.14),0_2px_8px_rgba(11,43,107,0.06)] data-[state=open]:!duration-300"
+        style={{ background: C.bg }}
       >
-        <div className="overflow-y-auto max-h-[90vh] sm:max-h-[92vh]">
+        {/* Mobile Drag Handle */}
+        <div className="sm:hidden absolute top-0 left-0 right-0 flex justify-center pt-3 pb-3 z-50 pointer-events-none" style={{ background: `linear-gradient(to bottom, ${C.bg} 30%, transparent)` }}>
+          <div className="w-12 h-[5px] rounded-full opacity-20" style={{ background: C.navy }} />
+        </div>
+
+        <div className="overflow-y-auto max-h-[94vh] sm:max-h-[92vh] mt-2 sm:mt-0 pb-4 sm:pb-0">
 
           {/* STEP 1 — Entry */}
           {step === 1 && (
             <>
-              <div className="px-6 pt-8 pb-5">
+              <div className="px-5 sm:px-6 pt-7 sm:pt-8 pb-5">
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <DialogTitle className="font-heading font-bold leading-tight" style={{ fontSize: "clamp(1.5rem,4vw,1.9rem)", letterSpacing: "-0.025em", color: C.text }}>
@@ -342,7 +347,7 @@ function StepHeader({ step, appliance, onClose }: { step: number; appliance: App
   const labels = isOther ? ["Appliance","Details","Contact"] : ["Appliance","Problem","Contact"];
 
   return (
-    <div className="sticky top-0 z-20 px-5 pt-5 pb-4" style={{ background: C.bg, borderBottom: `1px solid ${C.border}` }}>
+    <div className="sticky top-0 z-20 px-5 pt-7 sm:pt-5 pb-4" style={{ background: C.bg, borderBottom: `1px solid ${C.border}` }}>
       <div className="flex items-center justify-between gap-3 mb-4">
         <div className="flex items-center gap-3">
           {appliance && step > 2 && (
