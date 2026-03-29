@@ -10,7 +10,6 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
 import BookingModal from "@/components/shared/BookingModal";
-import PWAInstallBanner from "@/components/shared/PWAInstallBanner";
 import Footer from "@/components/layout/Footer";
 
 export default function HomePage() {
@@ -29,7 +28,6 @@ export default function HomePage() {
       <ContactSection />
       <Footer onBookService={openModal} />
       <BookingModal open={modalOpen} onClose={() => setModalOpen(false)} />
-      <PWAInstallBanner />
     </>
   );
 }
