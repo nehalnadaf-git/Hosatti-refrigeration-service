@@ -4,8 +4,8 @@ export const BUSINESS = {
   name: "Hosatti Refrigeration Service",
   tagline: "Dharwad's Most Trusted Appliance Repair Experts",
   owner: "Jameer Hosatti",
-  phone: "+91-8401225984",
-  whatsapp: "918401225984",
+  phone: "+91-7899472430",
+  whatsapp: "917899472430",
   email: "info@hosattirefrigeration.com",
   address: {
     street: "Jaya Nagar, Opp Gurukul Academy, Saptapur Last Stop",

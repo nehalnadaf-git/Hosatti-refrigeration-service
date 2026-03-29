@@ -1,5 +1,5 @@
 // src/lib/whatsapp.ts
-const WHATSAPP_NUMBER = "918401225984"; // Country code + number, no +
+const WHATSAPP_NUMBER = "917899472430"; // Country code + number, no +
 
 /**
  * Build a wa.me deep link — opens WhatsApp app directly on mobile,
