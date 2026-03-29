@@ -21,25 +21,25 @@ export default function AboutSection() {
         {/* Image Column */}
         <ScrollReveal direction="right">
           <div className="flex items-center justify-center">
-            <div className="relative w-full max-w-[340px] md:max-w-[400px]">
+            <div className="relative w-full max-w-[280px] sm:max-w-[340px] md:max-w-[400px] mt-2 sm:mt-0">
               <Image
                 src="/Jameer/Jameer.webp"
                 alt="Jameer Hosatti — Owner & Chief Technician at Hosatti Refrigeration Service, Dharwad"
                 width={400}
                 height={500}
-                className="relative w-full rounded-3xl object-cover aspect-[4/5] md:aspect-[3/4]"
+                className="relative w-full rounded-[1.5rem] sm:rounded-3xl object-cover aspect-[4/5] md:aspect-[3/4]"
                 style={{ boxShadow: "0 2px 4px rgba(11,43,107,0.04),0 8px 16px rgba(11,43,107,0.08),0 24px 48px rgba(11,43,107,0.12),0 48px 96px rgba(11,43,107,0.06)" }}
               />
               {/* Years badge */}
-              <div className="absolute -bottom-5 -right-5 rounded-2xl bg-white px-5 py-4 md:-bottom-6 md:-right-6" style={{ boxShadow: "0 4px 6px rgba(11,43,107,0.04),0 12px 28px rgba(11,43,107,0.10)", border: "1px solid rgba(11,43,107,0.08)" }}>
-                <p className="font-display font-bold leading-none" style={{ fontSize: "2.8rem", letterSpacing: "-0.05em", color: "#0f172a" }}>15+</p>
-                <p className="mt-1.5 font-body text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground md:text-[9.5px]">Years Experience</p>
+              <div className="absolute -bottom-3 -right-3 sm:-bottom-5 sm:-right-5 md:-bottom-6 md:-right-6 rounded-2xl bg-white px-4 py-3 sm:px-5 sm:py-4 z-20" style={{ boxShadow: "0 4px 6px rgba(11,43,107,0.04),0 12px 28px rgba(11,43,107,0.10)", border: "1px solid rgba(11,43,107,0.08)" }}>
+                <p className="font-display font-bold leading-none text-[2.2rem] sm:text-[2.8rem]" style={{ letterSpacing: "-0.05em", color: "#0f172a" }}>15+</p>
+                <p className="mt-1 font-body text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground md:text-[9.5px]">Years Experience</p>
               </div>
               {/* Name badge */}
-              <div className="absolute -bottom-5 -left-5 md:-bottom-6 md:-left-6 rounded-2xl bg-[hsl(220,85%,23%)] px-4 py-3" style={{ boxShadow: "0 4px 6px rgba(11,43,107,0.15),0 12px 28px rgba(11,43,107,0.22)" }}>
-                <div className="mb-1.5 h-[2px] w-6 rounded-full bg-yellow-400" />
-                <p className="font-display text-[1.05rem] font-semibold leading-snug text-white tracking-[-0.01em]">Jameer Hosatti</p>
-                <p className="mt-0.5 font-body text-[8.5px] font-semibold uppercase tracking-[0.2em] text-yellow-400/80">Owner &amp; Chief Technician</p>
+              <div className="absolute -bottom-3 -left-3 sm:-bottom-5 sm:-left-5 md:-bottom-6 md:-left-6 rounded-2xl bg-[hsl(220,85%,23%)] px-4 py-3 z-20" style={{ boxShadow: "0 4px 6px rgba(11,43,107,0.15),0 12px 28px rgba(11,43,107,0.22)" }}>
+                <div className="mb-1.5 h-[2px] w-5 sm:w-6 rounded-full bg-yellow-400" />
+                <p className="font-display text-[0.95rem] sm:text-[1.05rem] font-semibold leading-snug text-white tracking-[-0.01em]">Jameer Hosatti</p>
+                <p className="mt-0.5 font-body text-[7.5px] sm:text-[8.5px] font-semibold uppercase tracking-[0.2em] text-yellow-400/80">Owner &amp; Chief Technician</p>
               </div>
             </div>
           </div>
