@@ -53,7 +53,7 @@ export default function WhyUsSection() {
             <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-tr from-yellow-400/12 to-blue-900/6 blur-2xl" />
             <div className="absolute -top-2 -left-2 h-12 w-12 border-t-2 border-l-2 border-yellow-400/40 rounded-tl-2xl" />
             <div className="absolute -bottom-2 -right-2 h-12 w-12 border-b-2 border-r-2 border-yellow-400/40 rounded-br-2xl" />
-            <Image src="/why-choose-us.png" alt="Hosatti Refrigeration Service expert technician at work in Dharwad" width={420} height={420} className="relative rounded-[1.65rem] object-cover object-center shadow-2xl w-full" loading="lazy" />
+            <Image src="/Why choose us image/Why choose us.webp" alt="Hosatti Refrigeration Service expert technician at work in Dharwad" width={420} height={420} className="relative rounded-[1.65rem] object-cover object-center shadow-2xl w-full" loading="lazy" />
             <div className="absolute -top-5 -left-5 rounded-2xl px-5 py-3.5 shadow-2xl border border-white/70 glass-light md:-top-6 md:-left-6">
               <p className="font-display text-[2.6rem] font-bold tracking-[-0.04em] leading-none md:text-[3rem]" style={{ color: "#0f172a" }}>15+</p>
               <div className="mt-1 h-[1.5px] w-full bg-gradient-to-r from-[#0f172a]/30 to-transparent" />

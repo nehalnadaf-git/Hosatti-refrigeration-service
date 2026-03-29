@@ -65,7 +65,7 @@ export default function ContactSection() {
             <div className="relative min-h-[320px] md:min-h-[400px]">
               <div className="absolute -inset-[2px] rounded-3xl bg-gradient-to-br from-yellow-400/40 to-blue-600/30" />
               <div className="relative overflow-hidden rounded-[calc(1.5rem-2px)] h-full shadow-2xl">
-                <Image src="/store-placeholder.png" alt="Hosatti Refrigeration Service storefront — Jay Nagar, Dharwad" width={600} height={400} className="h-full w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
+                <Image src="/Store image/Store.webp" alt="Hosatti Refrigeration Service storefront — Jay Nagar, Dharwad" width={600} height={400} className="h-full w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" />
               </div>
             </div>
           </ScrollReveal>
