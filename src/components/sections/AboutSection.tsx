@@ -22,7 +22,7 @@ export default function AboutSection() {
         <ScrollReveal direction="right">
           {/* pb-16 on mobile ensures badge overflow has breathing room */}
           <div className="flex items-center justify-center pb-16 sm:pb-4 md:pb-0">
-            <div className="relative w-full max-w-[320px] sm:max-w-[360px] md:max-w-[420px] mt-2 sm:mt-0">
+            <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] mt-2 sm:mt-0">
               <Image
                 src="/Jameer/Jameer.webp"
                 alt="Jameer Hosatti — Owner & Chief Technician at Hosatti Refrigeration Service, Dharwad"
