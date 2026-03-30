@@ -5,18 +5,33 @@ import { SERVICES } from "@/lib/services-data";
 export function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
     "@id": `${BUSINESS.url}/#business`,
     name: BUSINESS.name,
+    alternateName: "Hosatti Refrigeration Dharwad",
+    slogan: "Dharwad's Most Trusted Appliance Repair Experts",
     description:
-      "Expert home appliance repair in Dharwad — AC, refrigerator, washing machine & air cooler. 15+ years experience. Same-day service with genuine parts.",
+      "Expert home appliance repair in Dharwad — AC, refrigerator, washing machine & air cooler. 15+ years experience. Same-day service with certified technicians and genuine parts.",
     url: BUSINESS.url,
     telephone: BUSINESS.phone,
     email: BUSINESS.email,
+    foundingDate: BUSINESS.founded,
+    logo: {
+      "@type": "ImageObject",
+      url: `${BUSINESS.url}/PWA image/Jameer PWA.webp`,
+      width: 512,
+      height: 512,
+    },
+    image: [
+      `${BUSINESS.url}/Banner/Web Banner.webp`,
+      `${BUSINESS.url}/Jameer/Jameer.webp`,
+      `${BUSINESS.url}/Store image/Store.webp`,
+    ],
     founder: {
       "@type": "Person",
       name: BUSINESS.owner,
       jobTitle: "Owner & Chief Technician",
+      worksFor: { "@id": `${BUSINESS.url}/#business` },
     },
     address: {
       "@type": "PostalAddress",
@@ -31,6 +46,7 @@ export function LocalBusinessSchema() {
       latitude: BUSINESS.geo.lat,
       longitude: BUSINESS.geo.lng,
     },
+    hasMap: `https://maps.google.com/?q=${BUSINESS.geo.lat},${BUSINESS.geo.lng}`,
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -43,21 +59,30 @@ export function LocalBusinessSchema() {
     ],
     priceRange: "₹₹",
     currenciesAccepted: "INR",
-    paymentAccepted: "Cash, UPI, Google Pay, PhonePe, Visa, Mastercard, RuPay",
+    paymentAccepted: "Cash, UPI, Google Pay, PhonePe, Visa, Mastercard, RuPay, American Express",
     areaServed: [
-      { "@type": "City", name: "Dharwad" },
+      { "@type": "City", name: "Dharwad", geoContains: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: BUSINESS.geo.lat, longitude: BUSINESS.geo.lng }, geoRadius: "20000" } },
       { "@type": "City", name: "Hubli" },
+    ],
+    knowsAbout: [
+      "AC Repair", "Air Conditioner Service", "Refrigerator Repair", "Fridge Repair",
+      "Washing Machine Repair", "Air Cooler Repair", "Home Appliance Repair",
+      "AC Gas Refilling", "Compressor Repair", "AC Deep Cleaning",
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Home Appliance Repair Services",
-      itemListElement: SERVICES.map((s) => ({
+      name: "Home Appliance Repair Services Dharwad",
+      itemListElement: SERVICES.map((s, i) => ({
         "@type": "Offer",
+        position: i + 1,
         itemOffered: {
           "@type": "Service",
           name: s.name,
           description: s.shortDesc,
           url: `${BUSINESS.url}/services/${s.slug}`,
+          serviceType: s.categoryLabel,
+          areaServed: { "@type": "City", name: "Dharwad" },
+          provider: { "@id": `${BUSINESS.url}/#business` },
         },
       })),
     },
@@ -68,7 +93,33 @@ export function LocalBusinessSchema() {
       bestRating: "5",
       worstRating: "1",
     },
-    sameAs: [`https://g.co/kgs/${BUSINESS.social.google}`],
+    review: [
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Jakeer" },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody: "Hosatti Refrigeration Service is excellent! The workers are very fast and do a great job. They fixed my fridge quickly and it works perfectly now. Highly recommend for any refrigeration needs!",
+        datePublished: "2024-11-01",
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Shakeel Shaikh" },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody: "I had a great experience with Hosatti Refrigeration Service! They fixed my fridge quickly. The price was fair and the service was excellent.",
+        datePublished: "2024-12-10",
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Nehal Nadaf" },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody: "Extremely satisfied with the service. They responded quickly when my AC stopped working and the technician was very knowledgeable. Highly professional and completely transparent with pricing.",
+        datePublished: "2025-01-15",
+      },
+    ],
+    sameAs: [
+      `https://g.co/kgs/${BUSINESS.social.google}`,
+      `https://wa.me/${BUSINESS.whatsapp}`,
+    ],
   };
 
   return (

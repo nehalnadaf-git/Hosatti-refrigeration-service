@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { SERVICES } from "@/lib/services-data";
 import { buildServiceWhatsAppURL } from "@/lib/whatsapp";
-import ScrollReveal from "@/components/shared/ScrollReveal";
+import ScrollReveal, { StaggerItem } from "@/components/shared/ScrollReveal";
 
 const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string }> = {
   "air-conditioner": { bg: "rgba(37,99,235,0.18)",  text: "#93c5fd", border: "rgba(37,99,235,0.40)"  },
@@ -27,7 +27,7 @@ export default function ServicesSection() {
 
       <div className="relative container mx-auto px-4 md:px-8">
         {/* Heading */}
-        <ScrollReveal>
+        <ScrollReveal direction="blur">
           <div className="mb-12 text-center md:mb-16">
             <div className="mb-4 flex items-center justify-center gap-3">
               <div className="h-px w-10 bg-gradient-to-r from-transparent to-yellow-500/70" />
@@ -48,97 +48,99 @@ export default function ServicesSection() {
         </ScrollReveal>
 
         {/* Cards */}
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
-          {SERVICES.map((service, i) => {
-            const waUrl = buildServiceWhatsAppURL(service.name, service.shortDesc);
-            const cat   = CATEGORY_COLORS[service.category] ?? CATEGORY_COLORS["air-conditioner"];
+        <ScrollReveal staggerChildren staggerDelay={0.09}>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
+            {SERVICES.map((service) => {
+              const waUrl = buildServiceWhatsAppURL(service.name, service.shortDesc);
+              const cat   = CATEGORY_COLORS[service.category] ?? CATEGORY_COLORS["air-conditioner"];
 
-            return (
-              <ScrollReveal key={service.id} delay={Math.min(i % 3, 2) * 0.08}>
-                <article
-                  className="group flex flex-col h-full rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1.5"
-                  style={{
-                    background: "#fff",
-                    boxShadow: "0 2px 16px rgba(11,43,107,0.07), 0 1px 4px rgba(11,43,107,0.04)",
-                  }}
-                >
-                  {/* ── Full-bleed 4:3 image — NO overlays ── */}
-                  <div className="relative w-full overflow-hidden flex-shrink-0" style={{ aspectRatio: "4/3" }}>
-                    <Image
-                      src={service.image}
-                      alt={service.name}
-                      fill
-                      className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
-                      sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-                      loading={i < 3 ? "eager" : "lazy"}
-                    />
-                    {/* Category badge only — no gradients */}
-                    <div className="absolute top-3 left-3 z-10">
-                      <span
-                        className="inline-flex items-center gap-1.5 px-2.5 py-[5px] rounded-lg font-body text-[9.5px] font-bold tracking-[0.1em] uppercase"
+              return (
+                <StaggerItem key={service.id} direction="up">
+                  <article
+                    className="group flex flex-col h-full rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1.5"
+                    style={{
+                      background: "#fff",
+                      boxShadow: "0 2px 16px rgba(11,43,107,0.07), 0 1px 4px rgba(11,43,107,0.04)",
+                    }}
+                  >
+                    {/* ── Full-bleed 4:3 image — NO overlays ── */}
+                    <div className="relative w-full overflow-hidden flex-shrink-0" style={{ aspectRatio: "4/3" }}>
+                      <Image
+                        src={service.image}
+                        alt={service.name}
+                        fill
+                        className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+                        sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
+                        loading="lazy"
+                      />
+                      {/* Category badge only — no gradients */}
+                      <div className="absolute top-3 left-3 z-10">
+                        <span
+                          className="inline-flex items-center gap-1.5 px-2.5 py-[5px] rounded-lg font-body text-[9.5px] font-bold tracking-[0.1em] uppercase"
+                          style={{
+                            background: cat.bg,
+                            color: cat.text,
+                            border: `1px solid ${cat.border}`,
+                            backdropFilter: "blur(8px)",
+                            WebkitBackdropFilter: "blur(8px)",
+                          }}
+                        >
+                          <span className="h-[5px] w-[5px] rounded-full flex-shrink-0" style={{ background: cat.text }} />
+                          {service.categoryLabel}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* ── Content ── */}
+                    <div className="flex flex-col flex-1 px-5 pt-4 pb-5 md:px-6 md:pt-5 md:pb-6">
+                      {/* Thin gold accent line */}
+                      <div className="mb-3 h-[2px] w-8 rounded-full"
+                        style={{ background: "linear-gradient(90deg, hsl(37,90%,52%), hsl(30,98%,44%))" }} />
+
+                      <h3
+                        className="font-display mb-2 transition-colors duration-300 group-hover:text-yellow-700"
                         style={{
-                          background: cat.bg,
-                          color: cat.text,
-                          border: `1px solid ${cat.border}`,
-                          backdropFilter: "blur(8px)",
-                          WebkitBackdropFilter: "blur(8px)",
+                          color: "hsl(220,55%,14%)",
+                          fontSize: "clamp(1rem,1.5vw,1.12rem)",
+                          lineHeight: 1.28,
+                          letterSpacing: "-0.015em",
                         }}
                       >
-                        <span className="h-[5px] w-[5px] rounded-full flex-shrink-0" style={{ background: cat.text }} />
-                        {service.categoryLabel}
-                      </span>
+                        {service.name}
+                      </h3>
+                      <p
+                        className="flex-1 font-body leading-relaxed"
+                        style={{ fontSize: "13.5px", color: "hsl(220,12%,48%)", lineHeight: 1.65 }}
+                      >
+                        {service.shortDesc}
+                      </p>
+
+                      {/* Book Now CTA */}
+                      <a
+                        href={waUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/btn mt-4 w-full flex items-center justify-center gap-2 rounded-xl h-11 font-body font-bold text-[12px] tracking-[0.07em] uppercase transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden"
+                        style={{
+                          background: "linear-gradient(135deg, hsl(37,92%,50%), hsl(30,98%,43%))",
+                          color: "hsl(220,55%,10%)",
+                          boxShadow: "0 3px 14px rgba(245,166,35,0.28)",
+                        }}
+                      >
+                        <span className="relative z-10 flex items-center gap-1.5">
+                          Book Now
+                          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
+                        </span>
+                        {/* Shimmer sweep */}
+                        <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/22 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full" />
+                      </a>
                     </div>
-                  </div>
-
-                  {/* ── Content ── */}
-                  <div className="flex flex-col flex-1 px-5 pt-4 pb-5 md:px-6 md:pt-5 md:pb-6">
-                    {/* Thin gold accent line */}
-                    <div className="mb-3 h-[2px] w-8 rounded-full"
-                      style={{ background: "linear-gradient(90deg, hsl(37,90%,52%), hsl(30,98%,44%))" }} />
-
-                    <h3
-                      className="font-display mb-2 transition-colors duration-300 group-hover:text-yellow-700"
-                      style={{
-                        color: "hsl(220,55%,14%)",
-                        fontSize: "clamp(1rem,1.5vw,1.12rem)",
-                        lineHeight: 1.28,
-                        letterSpacing: "-0.015em",
-                      }}
-                    >
-                      {service.name}
-                    </h3>
-                    <p
-                      className="flex-1 font-body leading-relaxed"
-                      style={{ fontSize: "13.5px", color: "hsl(220,12%,48%)", lineHeight: 1.65 }}
-                    >
-                      {service.shortDesc}
-                    </p>
-
-                    {/* Book Now CTA */}
-                    <a
-                      href={waUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group/btn mt-4 w-full flex items-center justify-center gap-2 rounded-xl h-11 font-body font-bold text-[12px] tracking-[0.07em] uppercase transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden"
-                      style={{
-                        background: "linear-gradient(135deg, hsl(37,92%,50%), hsl(30,98%,43%))",
-                        color: "hsl(220,55%,10%)",
-                        boxShadow: "0 3px 14px rgba(245,166,35,0.28)",
-                      }}
-                    >
-                      <span className="relative z-10 flex items-center gap-1.5">
-                        Book Now
-                        <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
-                      </span>
-                      {/* Shimmer sweep */}
-                      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/22 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full" />
-                    </a>
-                  </div>
-                </article>
-              </ScrollReveal>
-            );
-          })}
-        </div>
+                  </article>
+                </StaggerItem>
+              );
+            })}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

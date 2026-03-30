@@ -1,6 +1,7 @@
 // src/components/sections/FAQSection.tsx
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import { FAQPageSchema } from "@/components/seo/FAQPageSchema";
 
 const faqs = [
   { q: "How much does refrigerator repair cost?", a: "The cost depends on the issue. We provide transparent pricing before starting any work. Prices are indicative and may vary." },
@@ -15,6 +16,8 @@ const faqs = [
 export default function FAQSection() {
   return (
     <section id="faq" className="relative bg-light-bg py-20 md:py-28 lg:py-32 overflow-hidden">
+      {/* FAQ page structured data for Google rich snippets */}
+      <FAQPageSchema />
       <div className="absolute -bottom-10 right-0 h-72 w-72 rounded-full bg-blue-900/5 blur-[120px]" />
       <div className="absolute top-0 left-1/4 h-52 w-52 rounded-full bg-yellow-400/5 blur-[100px]" />
 

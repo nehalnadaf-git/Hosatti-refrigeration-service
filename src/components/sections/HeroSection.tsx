@@ -55,20 +55,15 @@ export default function HeroSection({ onBookService }: HeroSectionProps) {
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
           </Button>
 
-          {/* Call Now — Solid red button */}
+          {/* Call Now — Glassmorphism button */}
           <a
             href={`tel:${BUSINESS.phone.replace(/-/g, "")}`}
-            className="flex-1 group relative flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl h-[42px] sm:h-[52px] font-body font-bold text-[11px] sm:text-[13px] tracking-[0.08em] uppercase transition-all duration-300 hover:-translate-y-0.5 overflow-hidden"
-            style={{
-              background: "linear-gradient(135deg, hsl(4,90%,52%), hsl(0,85%,44%))",
-              color: "#ffffff",
-              boxShadow: "0 4px 20px rgba(220,38,38,0.40), 0 1px 3px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.15)",
-            }}
+            className="flex-1 group relative flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl h-[42px] sm:h-[52px] font-body font-bold text-[11px] sm:text-[13px] tracking-[0.08em] uppercase transition-all duration-300 hover:-translate-y-0.5 overflow-hidden text-white bg-[rgba(255,255,255,0.15)] [backdrop-filter:blur(16px)] [-webkit-backdrop-filter:blur(16px)] border border-[rgba(255,255,255,0.30)] shadow-[0_4px_20px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.25)]"
           >
             <span className="relative text-[14px] sm:text-[16px] flex-shrink-0">📞</span>
             <span>Call Now</span>
             {/* Shimmer */}
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
           </a>
 
         </div>
@@ -83,9 +78,10 @@ export default function HeroSection({ onBookService }: HeroSectionProps) {
           className="w-full block scale-y-[1.05] translate-y-[0.5px]" 
           preserveAspectRatio="none"
         >
-          <path 
-            d="M0 80L48 72C96 64 192 48 288 42C384 36 480 40 576 46C672 52 768 60 864 62C960 64 1056 60 1152 54C1248 48 1344 40 1392 36L1440 32V80H0Z" 
-            fill="hsl(220, 30%, 98%)" 
+          <path
+            suppressHydrationWarning
+            d="M0 80L0 79C60 77 140 71 240 62C360 51 500 40 660 38C820 36 960 46 1080 56C1180 64 1300 66 1380 56L1440 46V80H0Z"
+            fill="hsl(220, 30%, 98%)"
           />
         </svg>
       </div>

@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/layout/Navbar";
 import QueryProvider from "@/lib/query-client";
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
+import { WebSiteSchema } from "@/components/seo/WebSiteSchema";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -31,21 +32,58 @@ export const metadata: Metadata = {
     template: "%s | Hosatti Refrigeration Service Dharwad",
   },
   description:
-    "Expert home appliance repair in Dharwad by Jameer Hosatti — 15+ years experience. Same-day AC, refrigerator, washing machine & air cooler repair. Certified technicians. Genuine parts. Call now.",
+    "Expert home appliance repair in Dharwad by Jameer Hosatti — 15+ years experience. Same-day AC, refrigerator, washing machine & air cooler repair. Certified technicians, genuine parts. Serving Dharwad & Hubli. Call now!",
   keywords: [
+    // AC / Air Conditioner
     "AC repair Dharwad",
-    "refrigerator repair Dharwad",
-    "washing machine repair Dharwad",
-    "air cooler repair Dharwad",
-    "AC gas filling Dharwad",
-    "fridge compressor repair Dharwad",
-    "home appliance repair Jay Nagar Dharwad",
-    "Hosatti refrigeration service",
+    "AC service Dharwad",
     "AC not cooling Dharwad",
-    "same day appliance repair Dharwad",
-    "LG Samsung IFB repair Dharwad",
+    "AC gas filling Dharwad",
+    "AC gas refilling Dharwad",
     "AC installation Dharwad",
     "AC deep cleaning Dharwad",
+    "AC technician Dharwad",
+    "split AC repair Dharwad",
+    "window AC repair Dharwad",
+    "inverter AC repair Dharwad",
+    // Refrigerator / Fridge
+    "refrigerator repair Dharwad",
+    "fridge repair Dharwad",
+    "fridge not cooling Dharwad",
+    "fridge compressor repair Dharwad",
+    "refrigerator gas filling Dharwad",
+    "double door fridge repair Dharwad",
+    "side by side fridge repair Dharwad",
+    "refrigerator service center Dharwad",
+    // Washing Machine
+    "washing machine repair Dharwad",
+    "fully automatic washing machine repair Dharwad",
+    "semi automatic washing machine repair Dharwad",
+    "front load washing machine repair Dharwad",
+    "washing machine not draining Dharwad",
+    "washing machine service Dharwad",
+    // Air Cooler
+    "air cooler repair Dharwad",
+    "cooler repair Dharwad",
+    "desert cooler repair Dharwad",
+    "air cooler motor repair Dharwad",
+    // General / Brand / Location
+    "home appliance repair Dharwad",
+    "home appliance repair Jay Nagar Dharwad",
+    "home appliance repair Hubli Dharwad",
+    "Hosatti refrigeration service",
+    "Jameer Hosatti Dharwad",
+    "same day appliance repair Dharwad",
+    "appliance repair near me Dharwad",
+    "LG repair Dharwad",
+    "Samsung repair Dharwad",
+    "IFB repair Dharwad",
+    "Whirlpool repair Dharwad",
+    "Voltas repair Dharwad",
+    "Godrej repair Dharwad",
+    "Haier repair Dharwad",
+    "refrigeration service Karnataka",
+    "appliance repair Karnataka",
   ],
   authors: [{ name: "Jameer Hosatti" }],
   creator: "Hosatti Refrigeration Service",
@@ -105,13 +143,20 @@ export const metadata: Metadata = {
   // verification: { google: "YOUR_REAL_TOKEN_HERE" }, // Add when ready to verify in Search Console
   icons: {
     icon: [
-      { url: "/PWA image/Jameer PWA.webp", type: "image/webp" },
+      { url: "/PWA image/Jameer PWA.webp", sizes: "192x192", type: "image/webp" },
     ],
     apple: [
-      { url: "/PWA image/Jameer PWA.webp", type: "image/webp" },
+      { url: "/PWA image/Jameer PWA.webp", sizes: "180x180", type: "image/webp" },
     ],
   },
   manifest: "/manifest.webmanifest",
+  other: {
+    "geo.region": "IN-KA",
+    "geo.placename": "Dharwad, Karnataka, India",
+    "geo.position": "15.4589;75.0078",
+    "ICBM": "15.4589, 75.0078",
+    "DC.language": "en-IN",
+  },
 };
 
 export const viewport: Viewport = {
@@ -133,8 +178,23 @@ export default function RootLayout({
       className={`${cormorant.variable} ${outfit.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Performance: preconnect to critical origins */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://wa.me" />
+        <link rel="dns-prefetch" href="https://api.whatsapp.com" />
+      </head>
       <body className="antialiased bg-white text-gray-900">
+        {/* Skip to main content for accessibility + SEO crawlability */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
         <LocalBusinessSchema />
+        <WebSiteSchema />
         <QueryProvider>
           <Navbar />
           <main id="main-content">{children}</main>

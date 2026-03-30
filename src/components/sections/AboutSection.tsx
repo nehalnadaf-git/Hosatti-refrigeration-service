@@ -1,7 +1,7 @@
 // src/components/sections/AboutSection.tsx
 import Image from "next/image";
 import { ShieldCheck, Wrench, Package, ThumbsUp } from "lucide-react";
-import ScrollReveal from "@/components/shared/ScrollReveal";
+import ScrollReveal, { StaggerItem } from "@/components/shared/ScrollReveal";
 
 const highlights = [
   { icon: ShieldCheck, label: "Expert Technicians", sub: "Trained & verified experts" },
@@ -20,33 +20,57 @@ export default function AboutSection() {
       <div className="relative container mx-auto grid gap-12 px-5 md:grid-cols-2 md:gap-20 md:px-8 lg:gap-28">
         {/* Image Column */}
         <ScrollReveal direction="right">
-          <div className="flex items-center justify-center">
-            <div className="relative w-full max-w-[280px] sm:max-w-[340px] md:max-w-[400px] mt-2 sm:mt-0">
+          {/* pb-16 on mobile ensures badge overflow has breathing room */}
+          <div className="flex items-center justify-center pb-16 sm:pb-4 md:pb-0">
+            <div className="relative w-full max-w-[320px] sm:max-w-[360px] md:max-w-[420px] mt-2 sm:mt-0">
               <Image
                 src="/Jameer/Jameer.webp"
                 alt="Jameer Hosatti — Owner & Chief Technician at Hosatti Refrigeration Service, Dharwad"
-                width={400}
-                height={500}
+                width={420}
+                height={525}
                 className="relative w-full rounded-[1.5rem] sm:rounded-3xl object-cover aspect-[4/5] md:aspect-[3/4]"
                 style={{ boxShadow: "0 2px 4px rgba(11,43,107,0.04),0 8px 16px rgba(11,43,107,0.08),0 24px 48px rgba(11,43,107,0.12),0 48px 96px rgba(11,43,107,0.06)" }}
               />
-              {/* Years badge */}
-              <div className="absolute -top-3 -right-3 sm:-top-5 sm:-right-5 md:-top-6 md:-right-6 rounded-2xl bg-white px-4 py-3 sm:px-5 sm:py-4 z-20 transition-transform duration-500 hover:-translate-y-1" style={{ boxShadow: "0 4px 6px rgba(11,43,107,0.04),0 12px 28px rgba(11,43,107,0.10)", border: "1px solid rgba(11,43,107,0.08)" }}>
-                <p className="font-display font-bold leading-none text-[2.2rem] sm:text-[2.8rem]" style={{ letterSpacing: "-0.05em", color: "#0f172a" }}>15+</p>
-                <p className="mt-1 font-body text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground md:text-[9.5px]">Years Experience</p>
-              </div>
-              {/* Name badge */}
-              <div className="absolute -bottom-3 -left-3 sm:-bottom-5 sm:-left-5 md:-bottom-6 md:-left-6 rounded-2xl bg-[hsl(220,85%,23%)] px-4 py-3 z-20" style={{ boxShadow: "0 4px 6px rgba(11,43,107,0.15),0 12px 28px rgba(11,43,107,0.22)" }}>
+
+              {/* Name badge — bottom-left, overhangs card */}
+              <div
+                className="absolute -bottom-5 -left-4 sm:-bottom-6 sm:-left-5 md:-bottom-7 md:-left-6 rounded-2xl bg-[hsl(220,85%,23%)] px-4 py-3 sm:px-5 sm:py-4 z-20"
+                style={{ boxShadow: "0 4px 6px rgba(11,43,107,0.15),0 12px 28px rgba(11,43,107,0.22)" }}
+              >
                 <div className="mb-1.5 h-[2px] w-5 sm:w-6 rounded-full bg-yellow-400" />
-                <p className="font-display text-[0.95rem] sm:text-[1.05rem] font-semibold leading-snug text-white tracking-[-0.01em]">Jameer Hosatti</p>
-                <p className="mt-0.5 font-body text-[7.5px] sm:text-[8.5px] font-semibold uppercase tracking-[0.2em] text-yellow-400/80">Owner &amp; Chief Technician</p>
+                <p className="font-display text-[0.95rem] sm:text-[1.05rem] font-semibold leading-snug text-white tracking-[-0.01em]">
+                  Jameer Hosatti
+                </p>
+                <p className="mt-0.5 font-body text-[7.5px] sm:text-[8.5px] font-semibold uppercase tracking-[0.2em] text-yellow-400/80">
+                  Owner &amp; Chief Technician
+                </p>
               </div>
+
+              {/* Years badge — bottom-right, overhangs card, left-aligned content */}
+              <div
+                className="absolute -bottom-5 -right-4 sm:-bottom-6 sm:-right-5 md:-bottom-7 md:-right-6 rounded-2xl bg-white px-4 py-3 sm:px-5 sm:py-4 z-20 flex flex-col items-start transition-transform duration-500 hover:-translate-y-1"
+                style={{ boxShadow: "0 4px 6px rgba(11,43,107,0.04),0 12px 28px rgba(11,43,107,0.10)", border: "1px solid rgba(11,43,107,0.07)" }}
+              >
+                {/* Gold accent line matching Jameer badge */}
+                <div className="mb-1.5 h-[2px] w-5 sm:w-6 rounded-full" style={{ background: "hsl(37,90%,55%)" }} />
+                <p
+                  className="font-display font-bold leading-none text-[2.2rem] sm:text-[2.8rem]"
+                  style={{ letterSpacing: "-0.04em", color: "hsl(37,90%,55%)" }}
+                >
+                  15+
+                </p>
+                <p className="mt-1 font-body text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground whitespace-nowrap">
+                  Years Experience
+                </p>
+              </div>
+
             </div>
           </div>
         </ScrollReveal>
 
+
         {/* Text Column */}
-        <ScrollReveal delay={0.15}>
+        <ScrollReveal direction="blur" delay={0.15}>
           <div className="flex flex-col justify-center">
             <div className="mb-6 flex items-center gap-3">
               <div className="h-[2px] w-8 bg-gradient-to-r from-yellow-400 to-yellow-400/40 rounded-full" />
@@ -62,20 +86,24 @@ export default function AboutSection() {
               Founded by <span className="font-semibold" style={{ color: "hsl(220,85%,23%)" }}>Jameer Hosatti</span>, Hosatti Refrigeration Service in Jay Nagar, Dharwad is a one-stop destination for all home appliance repairs. From refrigerators to ACs to washing machines, our skilled technicians serve both local and out-of-city customers with precision and care.
             </p>
 
-            <div className="mt-8 grid grid-cols-2 gap-3 md:mt-10 md:gap-4">
-              {highlights.map(({ icon: Icon, label, sub }, i) => (
-                <div key={label} className="group relative flex flex-col items-start gap-3 overflow-hidden rounded-2xl border border-border/50 bg-white/80 backdrop-blur-sm p-4 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-yellow-400/25 hover:-translate-y-1 md:p-5">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400/15 to-yellow-400/5 transition-all duration-300 group-hover:from-yellow-400/30 group-hover:to-yellow-400/10">
-                    <Icon className="h-5 w-5 text-gold" style={{ color: "hsl(37,90%,55%)" }} />
-                  </div>
-                  <div>
-                    <p className="font-body text-[13px] font-semibold text-foreground leading-snug md:text-[14px]">{label}</p>
-                    <p className="mt-0.5 font-body text-[11px] font-normal text-muted-foreground leading-snug md:text-[11.5px]">{sub}</p>
-                  </div>
-                  <div className="absolute bottom-3 right-3 h-1.5 w-1.5 rounded-full bg-yellow-400/30 group-hover:bg-yellow-400/60 transition-colors duration-300" />
-                </div>
-              ))}
-            </div>
+            <ScrollReveal staggerChildren staggerDelay={0.07} delay={0.25}>
+              <div className="mt-8 grid grid-cols-2 gap-3 md:mt-10 md:gap-4">
+                {highlights.map(({ icon: Icon, label, sub }) => (
+                  <StaggerItem key={label} direction="scale">
+                    <div className="group relative flex flex-col items-start gap-3 overflow-hidden rounded-2xl border border-border/50 bg-white/80 backdrop-blur-sm p-4 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-yellow-400/25 hover:-translate-y-1 md:p-5">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400/15 to-yellow-400/5 transition-all duration-300 group-hover:from-yellow-400/30 group-hover:to-yellow-400/10">
+                        <Icon className="h-5 w-5 text-gold" style={{ color: "hsl(37,90%,55%)" }} />
+                      </div>
+                      <div>
+                        <p className="font-body text-[13px] font-semibold text-foreground leading-snug md:text-[14px]">{label}</p>
+                        <p className="mt-0.5 font-body text-[11px] font-normal text-muted-foreground leading-snug md:text-[11.5px]">{sub}</p>
+                      </div>
+                      <div className="absolute bottom-3 right-3 h-1.5 w-1.5 rounded-full bg-yellow-400/30 group-hover:bg-yellow-400/60 transition-colors duration-300" />
+                    </div>
+                  </StaggerItem>
+                ))}
+              </div>
+            </ScrollReveal>
           </div>
         </ScrollReveal>
       </div>
