@@ -34,32 +34,29 @@ export default function AboutSection() {
 
               {/* Name badge — bottom-left, overhangs card */}
               <div
-                className="absolute -bottom-5 -left-4 sm:-bottom-6 sm:-left-5 md:-bottom-7 md:-left-6 rounded-2xl bg-[hsl(220,85%,23%)] px-4 py-3 sm:px-5 sm:py-4 z-20"
-                style={{ boxShadow: "0 4px 6px rgba(11,43,107,0.15),0 12px 28px rgba(11,43,107,0.22)" }}
+                className="absolute -bottom-4 -left-2 sm:-bottom-5 sm:-left-4 md:-bottom-6 md:-left-6 rounded-2xl bg-[hsl(220,85%,23%)] px-3.5 py-3 sm:px-5 sm:py-4 z-20 shadow-[0_8px_16px_rgba(11,43,107,0.12),0_16px_32px_rgba(11,43,107,0.16)] border border-white/10"
               >
-                <div className="mb-1.5 h-[2px] w-5 sm:w-6 rounded-full bg-yellow-400" />
-                <p className="font-display text-[0.95rem] sm:text-[1.05rem] font-semibold leading-snug text-white tracking-[-0.01em]">
+                <div className="mb-1 sm:mb-1.5 h-[2px] w-4 sm:w-5 rounded-full" style={{ background: "hsl(37,90%,55%)" }} />
+                <p className="font-display text-[0.95rem] sm:text-[1.1rem] font-semibold leading-snug text-white tracking-[-0.01em] whitespace-nowrap">
                   Jameer Hosatti
                 </p>
-                <p className="mt-0.5 font-body text-[7.5px] sm:text-[8.5px] font-semibold uppercase tracking-[0.2em] text-yellow-400/80">
-                  Owner &amp; Chief Technician
+                <p className="mt-0.5 font-body text-[6.5px] sm:text-[7.5px] md:text-[8px] font-bold uppercase tracking-[0.2em] text-white/70 whitespace-nowrap">
+                  Chief Technician
                 </p>
               </div>
 
               {/* Years badge — bottom-right, overhangs card, left-aligned content */}
               <div
-                className="absolute -bottom-5 -right-4 sm:-bottom-6 sm:-right-5 md:-bottom-7 md:-right-6 rounded-2xl bg-white px-4 py-3 sm:px-5 sm:py-4 z-20 flex flex-col items-start transition-transform duration-500 hover:-translate-y-1"
-                style={{ boxShadow: "0 4px 6px rgba(11,43,107,0.04),0 12px 28px rgba(11,43,107,0.10)", border: "1px solid rgba(11,43,107,0.07)" }}
+                className="absolute -bottom-4 -right-2 sm:-bottom-5 sm:-right-4 md:-bottom-6 md:-right-6 rounded-2xl bg-white/95 px-3.5 py-3 sm:px-5 sm:py-4 z-20 flex flex-col items-start transition-transform duration-500 hover:-translate-y-1 shadow-[0_8px_16px_rgba(11,43,107,0.06),0_16px_32px_rgba(11,43,107,0.08)] border border-blue-900/5 backdrop-blur-sm"
               >
-                {/* Gold accent line matching Jameer badge */}
-                <div className="mb-1.5 h-[2px] w-5 sm:w-6 rounded-full" style={{ background: "hsl(37,90%,55%)" }} />
+                <div className="mb-1 sm:mb-1.5 h-[2px] w-4 sm:w-5 rounded-full" style={{ background: "hsl(37,90%,55%)" }} />
                 <p
-                  className="font-display font-bold leading-none text-[2.2rem] sm:text-[2.8rem]"
+                  className="font-display font-bold leading-none text-[2rem] sm:text-[2.5rem] md:text-[2.75rem]"
                   style={{ letterSpacing: "-0.04em", color: "hsl(37,90%,55%)" }}
                 >
                   15+
                 </p>
-                <p className="mt-1 font-body text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground whitespace-nowrap">
+                <p className="mt-1 font-body text-[6.5px] sm:text-[7.5px] md:text-[8px] font-bold uppercase tracking-[0.2em] text-muted-foreground whitespace-nowrap">
                   Years Experience
                 </p>
               </div>
