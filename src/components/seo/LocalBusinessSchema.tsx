@@ -59,7 +59,7 @@ export function LocalBusinessSchema() {
     ],
     priceRange: "₹₹",
     currenciesAccepted: "INR",
-    paymentAccepted: "Cash, UPI, Google Pay, PhonePe, Visa, Mastercard, RuPay, American Express",
+    paymentAccepted: "Cash, UPI, Google Pay, PhonePe, Debit Card, Credit Card",
     areaServed: [
       { "@type": "City", name: "Dharwad", geoContains: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: BUSINESS.geo.lat, longitude: BUSINESS.geo.lng }, geoRadius: "20000" } },
       { "@type": "City", name: "Hubli" },

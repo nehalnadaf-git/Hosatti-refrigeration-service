@@ -10,7 +10,7 @@ const faqs = [
   { q: "Which brands do you service?", a: "We service LG, Samsung, Videocon, IFB, Godrej, Haier, Panasonic, Voltas, Whirlpool, Bosch, and many more." },
   { q: "What are your working hours?", a: "We are open every day from 07:00 AM to 07:45 PM." },
   { q: "How do I book a service?", a: "Click the 'Book Service' button, choose your appliance, describe the problem, and we'll connect on WhatsApp instantly." },
-  { q: "What payment methods do you accept?", a: "We accept Visa, Mastercard, RuPay, American Express, UPI, Google Pay, PhonePe, and Cash." },
+  { q: "What payment methods do you accept?", a: "We accept UPI (Google Pay, PhonePe), ATM Debit/Credit Card, and Cash." },
 ];
 
 export default function FAQSection() {

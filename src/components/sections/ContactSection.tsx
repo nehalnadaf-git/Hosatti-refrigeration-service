@@ -11,7 +11,7 @@ const info = [
   { icon: Phone,         label: "Phone",    value: BUSINESS.phone, href: `tel:${BUSINESS.phone.replace(/-/g, "")}` },
   { icon: MessageCircle, label: "WhatsApp", value: BUSINESS.phone, isWhatsApp: true },
   { icon: Clock,         label: "Hours",    value: BUSINESS.openingHoursDisplay },
-  { icon: CreditCard,    label: "Payments", value: "Visa | Mastercard | RuPay | Amex | UPI | Cash" },
+  { icon: CreditCard,    label: "Payments", value: "UPI | Google Pay | PhonePe | ATM Card | Cash" },
 ];
 
 export default function ContactSection() {

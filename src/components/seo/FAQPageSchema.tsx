@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: "What payment methods do you accept?",
-    a: "We accept Visa, Mastercard, RuPay, American Express, UPI, Google Pay, PhonePe, and Cash.",
+    a: "We accept UPI (Google Pay, PhonePe), ATM Debit/Credit Card, and Cash.",
   },
 ];
 
