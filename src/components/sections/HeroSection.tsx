@@ -55,27 +55,20 @@ export default function HeroSection({ onBookService }: HeroSectionProps) {
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
           </Button>
 
-          {/* Call Now — Premium glass button */}
+          {/* Call Now — Solid red button */}
           <a
             href={`tel:${BUSINESS.phone.replace(/-/g, "")}`}
             className="flex-1 group relative flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl h-[42px] sm:h-[52px] font-body font-bold text-[11px] sm:text-[13px] tracking-[0.08em] uppercase transition-all duration-300 hover:-translate-y-0.5 overflow-hidden"
             style={{
-              background: "rgba(255,255,255,0.08)",
-              backdropFilter: "blur(16px)",
-              WebkitBackdropFilter: "blur(16px)",
-              border: "1.5px solid rgba(255,255,255,0.22)",
+              background: "linear-gradient(135deg, hsl(4,90%,52%), hsl(0,85%,44%))",
               color: "#ffffff",
-              boxShadow: "0 4px 20px rgba(0,0,0,0.25), 0 1px 3px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.12)",
+              boxShadow: "0 4px 20px rgba(220,38,38,0.40), 0 1px 3px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.15)",
             }}
           >
-            {/* Pulse ring */}
-            <span className="relative flex h-5 w-5 sm:h-5 sm:w-5 flex-shrink-0 items-center justify-center">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/30" style={{ animationDuration: "2s" }} />
-              <span className="relative text-[14px] sm:text-[16px]">📞</span>
-            </span>
+            <span className="relative text-[14px] sm:text-[16px] flex-shrink-0">📞</span>
             <span>Call Now</span>
-            {/* Hover overlay */}
-            <span className="absolute inset-0 bg-white/0 transition-all duration-300 group-hover:bg-white/8 rounded-xl" />
+            {/* Shimmer */}
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
           </a>
 
         </div>

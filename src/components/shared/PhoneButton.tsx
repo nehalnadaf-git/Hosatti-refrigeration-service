@@ -20,12 +20,9 @@ export default function PhoneButton({ className, variant = "full" }: PhoneButton
       )}
       aria-label="Call Hosatti Refrigeration Service"
     >
-      <Phone className="h-4 w-4" />
+      <Phone className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
       {variant === "full" && (
-        <>
-          <Phone className="h-5 w-5 md:h-6 md:w-6 transition-transform duration-300 group-hover:scale-110" />
-          <span className="hidden sm:inline">Call Now</span>
-        </>
+        <span className="hidden sm:inline">Call Now</span>
       )}
     </a>
   );

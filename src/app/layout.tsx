@@ -102,9 +102,7 @@ export const metadata: Metadata = {
     canonical: "https://hosattirefrigeration.com",
     languages: { "en-IN": "https://hosattirefrigeration.com" },
   },
-  verification: {
-    google: "REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_TOKEN",
-  },
+  // verification: { google: "YOUR_REAL_TOKEN_HERE" }, // Add when ready to verify in Search Console
   icons: {
     icon: [
       { url: "/PWA image/Jameer PWA.webp", type: "image/webp" },
@@ -117,14 +115,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#1a237e" },
-    { media: "(prefers-color-scheme: dark)", color: "#0d1b6b" },
-  ],
+  themeColor: "#1a237e",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  colorScheme: "light dark",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
