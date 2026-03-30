@@ -42,8 +42,8 @@ export default function FAQSection() {
               {faqs.map(({ q, a }, i) => (
                 <AccordionItem key={i} value={`faq-${i}`} className="group overflow-hidden rounded-2xl border border-border/50 bg-white/80 backdrop-blur-sm shadow-sm mb-3 transition-all duration-300 hover:shadow-md hover:border-yellow-400/20 data-[state=open]:border-yellow-400/30 data-[state=open]:shadow-md">
                   <AccordionTrigger className="flex items-center gap-3 px-5 py-4 text-left hover:no-underline md:px-6 md:py-5 [&[data-state=open]]:text-yellow-600" style={{ fontSize: "clamp(1.05rem,2vw,1.2rem)" }}>
-                    <span className="shrink-0 flex h-7 w-7 items-center justify-center rounded-full bg-yellow-400/10 font-body text-[11px] font-bold border border-yellow-400/20 group-data-[state=open]:bg-yellow-400 group-data-[state=open]:text-white group-data-[state=open]:border-yellow-400 transition-all" style={{ color: "hsl(37,90%,55%)" }}>
-                      {String(i + 1).padStart(2, "0")}
+                    <span className="shrink-0 flex h-7 w-7 items-center justify-center rounded-full bg-yellow-400/10 font-display text-[15px] font-bold border border-yellow-400/20 group-data-[state=open]:bg-yellow-400 group-data-[state=open]:text-white group-data-[state=open]:border-yellow-400 transition-all leading-none" style={{ color: "hsl(37,90%,55%)" }}>
+                      ?
                     </span>
                     <span className="font-display font-semibold text-foreground tracking-[-0.02em] group-data-[state=open]:text-yellow-600 transition-colors">{q}</span>
                   </AccordionTrigger>

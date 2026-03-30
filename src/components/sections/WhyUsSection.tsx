@@ -1,6 +1,6 @@
 // src/components/sections/WhyUsSection.tsx
 import Image from "next/image";
-import { CheckCircle2, Award } from "lucide-react";
+import { CheckCircle2, Check, Award } from "lucide-react";
 import ScrollReveal, { StaggerItem } from "@/components/shared/ScrollReveal";
 
 const items = [
@@ -39,8 +39,8 @@ export default function WhyUsSection() {
               {items.map((item, i) => (
                 <StaggerItem key={item} direction="left">
                   <li className="group flex items-center gap-4 rounded-2xl border border-border/40 bg-white/90 backdrop-blur-sm px-4 py-3.5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-yellow-400/25 hover:-translate-y-0.5">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400/15 to-yellow-400/5 border border-yellow-400/15 transition-all duration-300 group-hover:from-yellow-400/25 group-hover:border-yellow-400/25">
-                      <span className="font-body text-[11px] font-bold" style={{ color: "hsl(37,90%,55%)" }}>{String(i + 1).padStart(2, "0")}</span>
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400/20 to-yellow-400/5 border border-yellow-400/20 transition-all duration-300 group-hover:from-yellow-400/35 group-hover:border-yellow-400/35">
+                      <Check className="h-3.5 w-3.5" style={{ color: "hsl(37,90%,55%)" }} />
                     </div>
                     <span className="font-body text-[14px] font-semibold text-foreground tracking-[0.01em] md:text-[15px]">{item}</span>
                     <CheckCircle2 className="ml-auto h-4 w-4 shrink-0 text-yellow-400/30 transition-colors duration-300 group-hover:text-yellow-400/60" />
