@@ -24,9 +24,9 @@ const reviews = [
     initials: "SG",
   },
   {
-    text: "Extremely satisfied! They responded quickly when my AC stopped working. The technician diagnosed the issue immediately and had it running perfectly within an hour. Professional, polite, and completely transparent with pricing.",
+    text: "Extremely satisfied! Jameer is our family's go-to washing machine and AC technician. He always responds quickly when an appliance breaks down, diagnoses the issue immediately, and has it running perfectly in no time. Professional, polite, and completely transparent with pricing!",
     name: "Nehal Nadaf",
-    service: "Professional & Reliable",
+    service: "Family Technician",
     initials: "NN",
   },
 ];

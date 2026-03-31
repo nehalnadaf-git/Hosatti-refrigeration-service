@@ -116,7 +116,7 @@ export function LocalBusinessSchema() {
         "@type": "Review",
         author: { "@type": "Person", name: "Nehal Nadaf" },
         reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-        reviewBody: "Extremely satisfied with the service. They responded quickly when my AC stopped working and the technician was very knowledgeable. Highly professional and completely transparent with pricing.",
+        reviewBody: "Extremely satisfied! Jameer is our family's go-to washing machine and AC technician. He always responds quickly when an appliance breaks down, diagnoses the issue immediately, and has it running perfectly in no time.",
         datePublished: "2025-01-15",
       },
     ],
