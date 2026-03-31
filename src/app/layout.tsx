@@ -25,7 +25,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hosattirefrigeration.com"),
+  metadataBase: new URL("https://hosatti.com"),
   title: {
     default:
       "Hosatti Refrigeration Service | AC, Fridge & Washing Machine Repair in Dharwad",
@@ -106,7 +106,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://hosattirefrigeration.com",
+    url: "https://hosatti.com",
     siteName: "Hosatti Refrigeration Service",
     title:
       "Hosatti Refrigeration Service | Best AC & Fridge Repair in Dharwad",
@@ -137,8 +137,8 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://hosattirefrigeration.com",
-    languages: { "en-IN": "https://hosattirefrigeration.com" },
+    canonical: "https://hosatti.com",
+    languages: { "en-IN": "https://hosatti.com" },
   },
   // verification: { google: "YOUR_REAL_TOKEN_HERE" }, // Add when ready to verify in Search Console
   icons: {

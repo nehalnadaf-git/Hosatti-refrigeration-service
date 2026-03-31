@@ -6,7 +6,7 @@ export const BUSINESS = {
   owner: "Jameer Hosatti",
   phone: "+91-7899472430",
   whatsapp: "917899472430",
-  email: "info@hosattirefrigeration.com",
+  email: "info@hosatti.com",
   address: {
     street: "Jaya Nagar, Opp Gurukul Academy, Saptapur Last Stop",
     city: "Dharwad",
@@ -31,7 +31,7 @@ export const BUSINESS = {
     "Mitsubishi", "Siemens", "Electrolux", "Sharp", "Onida",
     "BPL", "Kelvinator", "TCL",
   ],
-  url: "https://hosattirefrigeration.com",
+  url: "https://hosatti.com",
   social: {
     google: "REPLACE_WITH_GOOGLE_MAPS_CID",
   },

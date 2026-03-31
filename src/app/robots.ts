@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       { userAgent: "*", allow: "/", disallow: ["/api/", "/_next/"] },
     ],
-    sitemap: "https://hosattirefrigeration.com/sitemap.xml",
-    host: "https://hosattirefrigeration.com",
+    sitemap: "https://hosatti.com/sitemap.xml",
+    host: "https://hosatti.com",
   };
 }
