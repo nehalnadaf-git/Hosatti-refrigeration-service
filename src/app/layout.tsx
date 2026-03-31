@@ -143,7 +143,7 @@ export const metadata: Metadata = {
   // verification: { google: "YOUR_REAL_TOKEN_HERE" }, // Add when ready to verify in Search Console
   icons: {
     icon: [
-      { url: "/Jameer%20favicon.jpg", type: "image/jpeg" },
+      { url: "/Jameer%20favicon%20circle.png", type: "image/png" },
       { url: "/PWA image/Jameer PWA.webp", sizes: "192x192", type: "image/webp" },
     ],
     apple: [
