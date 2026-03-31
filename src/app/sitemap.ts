@@ -1,7 +1,7 @@
 // src/app/sitemap.ts
 import type { MetadataRoute } from "next";
 
-const BASE = "https://hosatti.com";
+const BASE = "https://www.hosatti.com";
 
 const servicesSlugs = [
   "refrigerator-not-cooling-repair",

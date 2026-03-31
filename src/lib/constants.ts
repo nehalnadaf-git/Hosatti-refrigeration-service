@@ -31,7 +31,7 @@ export const BUSINESS = {
     "Mitsubishi", "Siemens", "Electrolux", "Sharp", "Onida",
     "BPL", "Kelvinator", "TCL",
   ],
-  url: "https://hosatti.com",
+  url: "https://www.hosatti.com",
   social: {
     google: "REPLACE_WITH_GOOGLE_MAPS_CID",
   },
