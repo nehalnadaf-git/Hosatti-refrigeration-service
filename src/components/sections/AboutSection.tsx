@@ -48,16 +48,16 @@ export default function AboutSection() {
                 </p>
               </div>
 
-              {/* Experience tag — Premium Blue Glassmorphism */}
+              {/* Experience tag — Platinum White Glassmorphism */}
               <div
-                className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-4 md:-bottom-6 md:-right-10 rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl px-4 py-3 sm:px-5 sm:py-4 md:px-7 md:py-5 z-20 shadow-[0_16px_40px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.3)] border border-white/30 animate-[float-subtle_5s_ease-in-out_infinite]"
+                className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-4 md:-bottom-6 md:-right-10 rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/95 to-slate-50/80 backdrop-blur-xl px-4 py-3 sm:px-5 sm:py-4 md:px-7 md:py-5 z-20 shadow-[0_16px_40px_rgba(11,43,107,0.12),inset_0_2px_0_rgba(255,255,255,1)] border border-slate-200/50 animate-[float-subtle_5s_ease-in-out_infinite]"
                 style={{ animationDelay: "1s" }}
               >
                 <div className="flex flex-col items-start">
                   <p className="font-display font-bold leading-none text-[1.5rem] sm:text-[2rem] md:text-[2.8rem] bg-gradient-to-br from-yellow-400 to-yellow-600 bg-clip-text text-transparent drop-shadow-sm" style={{ letterSpacing: "-0.04em" }}>
                     15+
                   </p>
-                  <p className="mt-1 font-body text-[8px] sm:text-[9.5px] md:text-[11px] font-bold uppercase tracking-[0.22em] text-white/90 whitespace-nowrap drop-shadow-sm">
+                  <p className="mt-1 font-body text-[8px] sm:text-[9.5px] md:text-[11px] font-bold uppercase tracking-[0.22em] text-[hsl(216,50%,15%)] whitespace-nowrap">
                     Years of Experience
                   </p>
                 </div>
