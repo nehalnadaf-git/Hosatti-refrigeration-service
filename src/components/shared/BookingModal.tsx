@@ -118,7 +118,7 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
     const applianceLine = appliance?.id === "other"
       ? `\n*Appliance:* Other — ${model || "Not specified"}`
       : `\n*Appliance:* ${appliance?.label}${modelLine}`;
-    const msg = `Hello Hosatti Refrigeration Service!\n\nI'd like to book a repair service.\n\n*Name:* ${name}\n*Phone:* ${phone}${applianceLine}\n*Problem(s):* ${prob || "Not specified"}\n\nPlease let me know the available slots. Thank you!`;
+    const msg = `Hello Hosatti Refrigeration Service!\n\nI'd like to book a repair service.\n\n*Name:* ${name}\n*Phone:* ${phone}${applianceLine}\n*Problem:* ${prob || "Not specified"}\n\nPlease let me know the available slots. Thank you!`;
     window.open(buildWhatsAppURL(msg), "_blank", "noopener,noreferrer");
     handleClose();
   };

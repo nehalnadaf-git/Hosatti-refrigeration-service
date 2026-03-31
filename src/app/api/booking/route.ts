@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     const prob = [...(problems ?? []), extraNote].filter(Boolean).join(", ");
     const modelLine = model ? `\n*Model:* ${model}` : "";
 
-    const message = `Hello Hosatti Refrigeration Service!\n\nI'd like to book a repair service.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Appliance:* ${appliance}${modelLine}\n*Problem(s):* ${prob || "Not specified"}\n\nPlease let me know the available slots. Thank you!`;
+    const message = `Hello Hosatti Refrigeration Service!\n\nI'd like to book a repair service.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Appliance:* ${appliance}${modelLine}\n*Problem:* ${prob || "Not specified"}\n\nPlease let me know the available slots. Thank you!`;
 
     const whatsappUrl = buildWhatsAppURL(message);
 
