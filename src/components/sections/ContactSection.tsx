@@ -11,7 +11,7 @@ const info = [
   { icon: Phone,         label: "Phone",    value: BUSINESS.phone, href: `tel:${BUSINESS.phone.replace(/-/g, "")}` },
   { icon: MessageCircle, label: "WhatsApp", value: BUSINESS.phone, isWhatsApp: true },
   { icon: Clock,         label: "Hours",    value: BUSINESS.openingHoursDisplay },
-  { icon: CreditCard,    label: "Payments", value: "UPI | Google Pay | PhonePe | ATM Card | Cash" },
+  { icon: CreditCard,    label: "Payments", value: `${BUSINESS.payments}` },
 ];
 
 export default function ContactSection() {
@@ -29,7 +29,7 @@ export default function ContactSection() {
               <div className="h-[1.5px] w-10 bg-gradient-to-l from-transparent to-yellow-400/60 rounded-full" />
             </div>
             <h2 className="font-display text-foreground">Get In Touch</h2>
-            <p className="mx-auto mt-4 max-w-md font-body text-[16px] font-normal text-muted-foreground leading-relaxed md:text-[17px]">
+            <p className="mx-auto mt-4 max-w-md lg:max-w-xl font-body text-[16px] lg:text-[18px] font-normal text-muted-foreground leading-relaxed md:text-[17px]">
               We&apos;re here to help with all your appliance repair needs
             </p>
           </div>
@@ -42,8 +42,8 @@ export default function ContactSection() {
                 <div key={label} className="group flex items-start gap-4 rounded-2xl border border-border/40 bg-white/90 backdrop-blur-sm p-4 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-yellow-400/25 hover:-translate-y-0.5 md:p-5">
                   <div className="relative shrink-0">
                     <div className="absolute inset-0 rounded-xl bg-yellow-400/10 blur-md scale-110 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                    <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400/15 to-yellow-400/5 border border-yellow-400/12" style={{ borderColor: "rgba(245,166,35,0.12)" }}>
-                      <Icon className="h-5 w-5" style={{ color: "hsl(37,90%,55%)" }} />
+                    <div className="relative flex h-11 w-11 lg:h-14 lg:w-14 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400/15 to-yellow-400/5 border border-yellow-400/12" style={{ borderColor: "rgba(245,166,35,0.12)" }}>
+                      <Icon className="h-5 w-5 lg:h-6 lg:w-6" style={{ color: "hsl(37,90%,55%)" }} />
                     </div>
                   </div>
                   <div className="min-w-0">
@@ -53,7 +53,7 @@ export default function ContactSection() {
                     ) : isWhatsApp ? (
                       <button onClick={() => openWhatsApp("")} className="block font-body text-[15px] font-medium text-foreground underline-offset-2 transition-colors hover:text-yellow-600 hover:underline md:text-[16px]">{value}</button>
                     ) : (
-                      <p className="font-body text-[15px] font-medium text-foreground leading-relaxed md:text-[16px]">{value}</p>
+                      <p className="font-body text-[15px] lg:text-[17px] font-medium text-foreground leading-relaxed md:text-[16px]">{value}</p>
                     )}
                   </div>
                 </div>

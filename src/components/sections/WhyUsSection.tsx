@@ -22,28 +22,28 @@ export default function WhyUsSection() {
 
       <div className="relative container mx-auto grid gap-12 px-5 md:grid-cols-2 md:gap-20 md:px-8 lg:gap-28">
         {/* Text Column */}
-        <ScrollReveal direction="blur" className="flex flex-col justify-center order-2 md:order-1">
+        <ScrollReveal direction="blur" delay={0} className="flex flex-col justify-center order-2 md:order-1">
           <div className="mb-6 flex items-center gap-3">
             <div className="h-[2px] w-8 bg-gradient-to-r from-yellow-400 to-yellow-400/40 rounded-full" />
             <span className="font-body text-[10px] font-semibold uppercase tracking-[0.25em] md:text-[11px]" style={{ color: "hsl(37,90%,55%)" }}>Why Choose Us</span>
           </div>
-          <h2 className="font-display text-foreground">
+          <h2 className="font-display text-foreground pb-1">
             Why Dharwad Trusts{" "}
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent italic">Hosatti Refrigeration</span>
+            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent italic px-1">Hosatti Refrigeration</span>
           </h2>
-          <p className="mt-5 font-body text-[16px] font-normal text-muted-foreground leading-[1.8] md:text-[17px]">
+          <p className="mt-5 font-body text-[16px] lg:text-[19px] font-normal text-muted-foreground leading-[1.8] md:text-[17px]">
             With a legacy of excellence spanning over 15+ years, Hosatti Refrigeration Service has become the first choice for reliable appliance repairs in Dharwad.
           </p>
-          <ScrollReveal staggerChildren staggerDelay={0.06} delay={0.15}>
+          <ScrollReveal staggerChildren staggerDelay={0.06} delay={0.12}>
             <ul className="mt-8 flex flex-col gap-2.5 md:mt-10">
               {items.map((item, i) => (
                 <StaggerItem key={item} direction="left">
-                  <li className="group flex items-center gap-4 rounded-2xl border border-border/40 bg-white/90 backdrop-blur-sm px-4 py-3.5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-yellow-400/25 hover:-translate-y-0.5">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400/20 to-yellow-400/5 border border-yellow-400/20 transition-all duration-300 group-hover:from-yellow-400/35 group-hover:border-yellow-400/35">
-                      <Check className="h-3.5 w-3.5" style={{ color: "hsl(37,90%,55%)" }} />
+                  <li className="group flex items-center gap-4 rounded-2xl border border-border/40 bg-white/90 backdrop-blur-sm px-4 py-3.5 lg:px-6 lg:py-5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-yellow-400/25 hover:-translate-y-0.5">
+                    <div className="flex h-8 w-8 lg:h-11 lg:w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400/20 to-yellow-400/5 border border-yellow-400/20 transition-all duration-300 group-hover:from-yellow-400/35 group-hover:border-yellow-400/35">
+                      <Check className="h-3.5 w-3.5 lg:h-5 lg:w-5" style={{ color: "hsl(37,90%,55%)" }} />
                     </div>
-                    <span className="font-body text-[14px] font-semibold text-foreground tracking-[0.01em] md:text-[15px]">{item}</span>
-                    <CheckCircle2 className="ml-auto h-4 w-4 shrink-0 text-yellow-400/30 transition-colors duration-300 group-hover:text-yellow-400/60" />
+                    <span className="font-body text-[14px] lg:text-[17px] font-semibold text-foreground tracking-[0.01em] md:text-[15px]">{item}</span>
+                    <CheckCircle2 className="ml-auto h-4 w-4 lg:h-5 lg:w-5 shrink-0 text-yellow-400/30 transition-colors duration-300 group-hover:text-yellow-400/60" />
                   </li>
                 </StaggerItem>
               ))}
@@ -52,7 +52,7 @@ export default function WhyUsSection() {
         </ScrollReveal>
 
         {/* Image Column */}
-        <ScrollReveal delay={0.15} className="flex items-center justify-center order-1 md:order-2">
+        <ScrollReveal delay={0.08} className="flex items-center justify-center order-1 md:order-2">
           <div className="relative w-full max-w-[280px] sm:max-w-[360px] md:max-w-[420px] mt-8 sm:mt-0">
             {/* Enhanced background glows */}
             <div className="absolute -inset-4 sm:-inset-6 rounded-[2rem] sm:rounded-[2.5rem] bg-gradient-to-tr from-yellow-400/15 via-transparent to-blue-900/10 blur-[24px] sm:blur-[32px] -z-10" />

@@ -58,6 +58,7 @@ export default function HeroSection({ onBookService }: HeroSectionProps) {
           {/* Call Now — Glassmorphism button */}
           <a
             href={`tel:${BUSINESS.phone.replace(/-/g, "")}`}
+            suppressHydrationWarning
             className="flex-1 group relative flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl h-[42px] sm:h-[52px] font-body font-bold text-[11px] sm:text-[13px] tracking-[0.08em] uppercase transition-all duration-300 hover:-translate-y-0.5 overflow-hidden text-white bg-[rgba(255,255,255,0.15)] [backdrop-filter:blur(16px)] [-webkit-backdrop-filter:blur(16px)] border border-[rgba(255,255,255,0.30)] shadow-[0_4px_20px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.25)]"
           >
             <span className="relative text-[14px] sm:text-[16px] flex-shrink-0">📞</span>
@@ -77,6 +78,7 @@ export default function HeroSection({ onBookService }: HeroSectionProps) {
           xmlns="http://www.w3.org/2000/svg" 
           className="w-full block scale-y-[1.05] translate-y-[0.5px]" 
           preserveAspectRatio="none"
+          suppressHydrationWarning
         >
           <path
             suppressHydrationWarning

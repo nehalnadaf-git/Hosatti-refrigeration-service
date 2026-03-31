@@ -143,6 +143,7 @@ export const metadata: Metadata = {
   // verification: { google: "YOUR_REAL_TOKEN_HERE" }, // Add when ready to verify in Search Console
   icons: {
     icon: [
+      { url: "/Jameer%20favicon.png", type: "image/png" },
       { url: "/PWA image/Jameer PWA.webp", sizes: "192x192", type: "image/webp" },
     ],
     apple: [
@@ -185,7 +186,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://wa.me" />
         <link rel="dns-prefetch" href="https://api.whatsapp.com" />
       </head>
-      <body className="antialiased bg-white text-gray-900">
+      <body className="antialiased bg-white text-gray-900" suppressHydrationWarning>
         {/* Skip to main content for accessibility + SEO crawlability */}
         <a
           href="#main-content"

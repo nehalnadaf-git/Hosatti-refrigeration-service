@@ -50,16 +50,20 @@ export function LocalBusinessSchema() {
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday",
-        ],
-        opens: "07:00",
-        closes: "19:45",
+        dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        opens: "09:30",
+        closes: "19:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Sunday",
+        opens: "09:30",
+        closes: "13:00",
       },
     ],
     priceRange: "₹₹",
     currenciesAccepted: "INR",
-    paymentAccepted: "Cash, UPI, Google Pay, PhonePe, Debit Card, Credit Card",
+    paymentAccepted: "Cash, UPI, Google Pay, Paytm",
     areaServed: [
       { "@type": "City", name: "Dharwad", geoContains: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: BUSINESS.geo.lat, longitude: BUSINESS.geo.lng }, geoRadius: "20000" } },
       { "@type": "City", name: "Hubli" },

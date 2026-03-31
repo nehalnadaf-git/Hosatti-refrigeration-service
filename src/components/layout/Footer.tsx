@@ -41,7 +41,7 @@ export default function Footer({ onBookService }: FooterProps) {
               <span className="block font-body text-[9.5px] font-medium text-yellow-400/80 tracking-[0.2em] uppercase md:text-[10px]">Refrigeration Service</span>
             </div>
           </div>
-          <p className="font-body text-[14px] font-normal leading-relaxed md:text-[15px]">
+          <p className="font-body text-[14px] lg:text-[16px] font-normal leading-relaxed md:text-[15px]">
             Your trusted appliance repair experts in Dharwad. Quality service, genuine parts, and customer satisfaction guaranteed.
           </p>
         </div>
@@ -52,7 +52,7 @@ export default function Footer({ onBookService }: FooterProps) {
           <ul className="flex flex-col gap-2">
             {quickLinks.map(l => (
               <li key={l.href}>
-                <a href={l.href} className="font-body text-[14px] font-normal transition-all duration-300 hover:text-yellow-400 hover:translate-x-1 inline-block md:text-[15px]">{l.label}</a>
+                <a href={l.href} className="font-body text-[14px] lg:text-[16px] font-normal transition-all duration-300 hover:text-yellow-400 hover:translate-x-1 inline-block md:text-[15px]">{l.label}</a>
               </li>
             ))}
           </ul>
@@ -61,7 +61,7 @@ export default function Footer({ onBookService }: FooterProps) {
         {/* Col 3 — Contact */}
         <div>
           <h3 className="mb-4 font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-primary-foreground md:text-[10.5px] md:mb-5">Contact Info</h3>
-          <ul className="flex flex-col gap-2.5 font-body text-[14px] font-normal md:text-[15px]">
+          <ul className="flex flex-col gap-2.5 font-body text-[14px] lg:text-[16px] font-normal md:text-[15px]">
             <li>{BUSINESS.address.full}</li>
             <li>
               <a href={`tel:${BUSINESS.phone.replace(/-/g, "")}`} className="transition-colors hover:text-yellow-400">{BUSINESS.phone}</a>
@@ -76,7 +76,7 @@ export default function Footer({ onBookService }: FooterProps) {
         <div>
           <h3 className="mb-4 font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-primary-foreground md:text-[10.5px] md:mb-5">Service Hours</h3>
           <p className="mb-5 font-body text-[14px] font-normal leading-relaxed md:text-[15px]">
-            Every Day<br />{BUSINESS.openingHoursDisplay}
+            {BUSINESS.openingHoursDisplay}
           </p>
           <button
             onClick={onBookService}

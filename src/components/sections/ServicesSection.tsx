@@ -40,7 +40,7 @@ export default function ServicesSection() {
             <h2 className="font-display" style={{ color: "hsl(220,55%,14%)", fontSize: "clamp(2rem,4.5vw,3rem)" }}>
               Our Repair Services
             </h2>
-            <p className="mx-auto mt-3 max-w-[420px] font-body text-[15px] leading-relaxed"
+            <p className="mx-auto mt-3 max-w-[420px] lg:max-w-2xl font-body text-[15px] lg:text-[18px] leading-relaxed"
               style={{ color: "hsl(220,15%,45%)" }}>
               Complete home appliance repair by certified technicians — same-day service available.
             </p>
@@ -49,7 +49,7 @@ export default function ServicesSection() {
 
         {/* Cards */}
         <ScrollReveal staggerChildren staggerDelay={0.09}>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 lg:gap-8">
             {SERVICES.map((service) => {
               const waUrl = buildServiceWhatsAppURL(service.name, service.shortDesc);
               const cat   = CATEGORY_COLORS[service.category] ?? CATEGORY_COLORS["air-conditioner"];
@@ -101,7 +101,7 @@ export default function ServicesSection() {
                         className="font-display mb-2 transition-colors duration-300 group-hover:text-yellow-700"
                         style={{
                           color: "hsl(220,55%,14%)",
-                          fontSize: "clamp(1rem,1.5vw,1.12rem)",
+                          fontSize: "clamp(1rem,1.5vw,1.35rem)",
                           lineHeight: 1.28,
                           letterSpacing: "-0.015em",
                         }}
@@ -110,7 +110,7 @@ export default function ServicesSection() {
                       </h3>
                       <p
                         className="flex-1 font-body leading-relaxed"
-                        style={{ fontSize: "13.5px", color: "hsl(220,12%,48%)", lineHeight: 1.65 }}
+                        style={{ fontSize: "clamp(13.5px,1.1vw,16px)", color: "hsl(220,12%,48%)", lineHeight: 1.65 }}
                       >
                         {service.shortDesc}
                       </p>
@@ -120,7 +120,7 @@ export default function ServicesSection() {
                         href={waUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group/btn mt-4 w-full flex items-center justify-center gap-2 rounded-xl h-11 font-body font-bold text-[12px] tracking-[0.07em] uppercase transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden"
+                        className="group/btn mt-4 w-full flex items-center justify-center gap-2 rounded-xl h-11 lg:h-13 font-body font-bold text-[12px] lg:text-[13px] tracking-[0.07em] uppercase transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden"
                         style={{
                           background: "linear-gradient(135deg, hsl(37,92%,50%), hsl(30,98%,43%))",
                           color: "hsl(220,55%,10%)",

@@ -55,7 +55,7 @@ export default function TestimonialsSection() {
               <div className="h-[1.5px] w-8 bg-gradient-to-l from-transparent to-yellow-400/60 rounded-full" />
             </div>
             <h2 className="font-display text-foreground">What Our Clients Say</h2>
-            <p className="mx-auto mt-3 max-w-sm font-body text-[15px] font-normal text-muted-foreground leading-relaxed md:text-[16px]">
+            <p className="mx-auto mt-3 max-w-sm lg:max-w-xl font-body text-[15px] lg:text-[18px] font-normal text-muted-foreground leading-relaxed md:text-[16px]">
               Trusted by hundreds of happy customers across Dharwad
             </p>
           </div>
@@ -63,7 +63,7 @@ export default function TestimonialsSection() {
 
         {/* Slider */}
         <ScrollReveal delay={0.1}>
-          <div className="mx-auto max-w-xl">
+          <div className="mx-auto max-w-xl md:max-w-2xl lg:max-w-5xl">
 
             {/* Track — clips overflow, shows one card at a time */}
             <div className="overflow-hidden rounded-2xl">
@@ -84,7 +84,7 @@ export default function TestimonialsSection() {
                     <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-white/90 backdrop-blur-sm shadow-md shadow-blue-900/5">
                       <div className="absolute -top-8 -right-8 h-24 w-24 rounded-full bg-yellow-400/[0.07] blur-2xl pointer-events-none" />
 
-                      <div className="relative p-5 sm:p-6">
+                      <div className="relative p-5 sm:p-8 md:p-10 lg:p-14 xl:p-16">
                         {/* Stars + Quote */}
                         <div className="flex items-start justify-between mb-4">
                           <div className="flex gap-0.5">
@@ -98,7 +98,7 @@ export default function TestimonialsSection() {
                         </div>
 
                         {/* Review text */}
-                        <blockquote className="font-display italic text-foreground leading-snug text-[0.9rem] sm:text-[0.95rem] min-h-[80px]">
+                        <blockquote className="font-display italic text-foreground leading-relaxed text-[0.9rem] sm:text-[1.05rem] md:text-[1.2rem] lg:text-[1.5rem] min-h-[80px]">
                           &ldquo;{review.text}&rdquo;
                         </blockquote>
 
@@ -108,13 +108,13 @@ export default function TestimonialsSection() {
                         {/* Author */}
                         <div className="flex items-center gap-3">
                           <div
-                            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-body text-[11px] font-bold shadow-md"
+                            className="flex h-9 w-9 md:h-12 md:w-12 lg:h-16 lg:w-16 shrink-0 items-center justify-center rounded-full font-body text-[11px] md:text-[13px] lg:text-[16px] font-bold shadow-md"
                             style={{ background: "linear-gradient(135deg,hsl(37,90%,55%),hsl(30,95%,48%))", color: "hsl(216,50%,10%)" }}
                           >
                             {review.initials}
                           </div>
                           <div className="min-w-0">
-                            <p className="font-display text-foreground" style={{ fontSize: "1rem", letterSpacing: "-0.02em", lineHeight: 1.2 }}>
+                            <p className="font-display text-foreground lg:text-[1.2rem]" style={{ fontSize: "1rem", letterSpacing: "-0.02em", lineHeight: 1.2 }}>
                               {review.name}
                             </p>
                             <p className="mt-0.5 font-body text-[10px] font-medium text-muted-foreground tracking-[0.12em] uppercase">

@@ -50,11 +50,11 @@ export default function BrandsSection() {
               <div className="h-[1.5px] w-10 bg-gradient-to-l from-transparent to-yellow-400/60 rounded-full" />
             </div>
             
-            <h2 className="font-display text-foreground" style={{ fontSize: "clamp(2rem,4.5vw,3.25rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
-              Brands We <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent italic">Service</span>
+            <h2 className="font-display text-foreground pb-1" style={{ fontSize: "clamp(2rem,4.5vw,3.25rem)", lineHeight: 1.3, letterSpacing: "-0.02em" }}>
+              Brands We <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent italic px-1">Service</span>
             </h2>
             
-            <p className="mx-auto mt-4 max-w-lg font-body text-[16px] font-normal text-muted-foreground leading-relaxed md:text-[17px]">
+            <p className="mx-auto mt-4 max-w-lg lg:max-w-2xl font-body text-[16px] lg:text-[18px] font-normal text-muted-foreground leading-relaxed md:text-[17px]">
               Certified expertise across India&apos;s most trusted home appliance brands.
             </p>
           </div>
