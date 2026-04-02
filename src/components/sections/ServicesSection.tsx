@@ -13,7 +13,14 @@ const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string
   "washing-machine": { bg: "rgba(245,158,11,0.15)", text: "#fcd34d", border: "rgba(245,158,11,0.35)"  },
 };
 
-export default function ServicesSection() {
+interface ServicesSectionProps {
+  limit?: number;
+  showViewAllCTA?: boolean;
+}
+
+export default function ServicesSection({ limit, showViewAllCTA }: ServicesSectionProps) {
+  const displayedServices = limit ? SERVICES.slice(0, limit) : SERVICES;
+
   return (
     <section
       id="services"
@@ -51,7 +58,7 @@ export default function ServicesSection() {
         {/* Cards */}
         <ScrollReveal staggerChildren staggerDelay={0.09}>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 lg:gap-8">
-            {SERVICES.map((service) => {
+            {displayedServices.map((service) => {
               const waUrl = buildServiceWhatsAppURL(service.name, service.shortDesc);
               const cat   = CATEGORY_COLORS[service.category] ?? CATEGORY_COLORS["air-conditioner"];
 
@@ -151,6 +158,29 @@ export default function ServicesSection() {
             })}
           </div>
         </ScrollReveal>
+
+        {/* View All Services CTA */}
+        {showViewAllCTA && (
+          <ScrollReveal direction="up" delay={0.2}>
+            <div className="mt-12 md:mt-16 flex justify-center">
+              <Link
+                href="/services"
+                className="group relative inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 font-body font-bold text-[13px] md:text-[14px] tracking-[0.05em] uppercase transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+                style={{
+                  background: "transparent",
+                  color: "hsl(220,55%,14%)",
+                  border: "2px solid hsl(37,90%,55%)",
+                }}
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  View All Services
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+                <span className="absolute inset-0 bg-gradient-to-r from-[hsl(37,90%,55%)] to-[hsl(37,90%,65%)] opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
+              </Link>
+            </div>
+          </ScrollReveal>
+        )}
       </div>
     </section>
   );
