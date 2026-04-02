@@ -15,7 +15,7 @@ async function getConfig(): Promise<NextConfig> {
       remotePatterns: [
         {
           protocol: "https",
-          hostname: "hosattirefrigeration.com",
+          hostname: "hosatti.com",
         },
       ],
     },

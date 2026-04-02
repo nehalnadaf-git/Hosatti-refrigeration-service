@@ -1,5 +1,6 @@
 // src/components/sections/ServicesSection.tsx
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SERVICES } from "@/lib/services-data";
 import { buildServiceWhatsAppURL } from "@/lib/whatsapp";
@@ -20,12 +21,12 @@ export default function ServicesSection() {
       style={{ background: "hsl(220,25%,96%)" }}
     >
       {/* Ambient glows */}
-      <div className="absolute top-0 right-0 h-[500px] w-[500px] rounded-full opacity-30 blur-[180px]"
+      <div className="absolute top-0 right-0 h-[500px] w-[500px] rounded-full opacity-30 blur-[180px] pointer-events-none"
         style={{ background: "radial-gradient(circle, hsl(37,90%,55%) 0%, transparent 70%)" }} />
-      <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full opacity-20 blur-[160px]"
+      <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full opacity-20 blur-[160px] pointer-events-none"
         style={{ background: "radial-gradient(circle, hsl(220,85%,23%) 0%, transparent 70%)" }} />
 
-      <div className="relative container mx-auto px-4 md:px-8">
+      <div className="relative z-10 container mx-auto px-4 md:px-8">
         {/* Heading */}
         <ScrollReveal direction="blur">
           <div className="mb-12 text-center md:mb-16">
@@ -42,7 +43,7 @@ export default function ServicesSection() {
             </h2>
             <p className="mx-auto mt-3 max-w-[420px] lg:max-w-2xl font-body text-[15px] lg:text-[18px] leading-relaxed"
               style={{ color: "hsl(220,15%,45%)" }}>
-              Complete home appliance repair by certified technicians — same-day service available.
+              Complete home appliance repair by certified technicians — quick service available.
             </p>
           </div>
         </ScrollReveal>
@@ -63,7 +64,7 @@ export default function ServicesSection() {
                       boxShadow: "0 2px 16px rgba(11,43,107,0.07), 0 1px 4px rgba(11,43,107,0.04)",
                     }}
                   >
-                    {/* ── Full-bleed 4:3 image — NO overlays ── */}
+                    {/* Full-bleed 4:3 image */}
                     <div className="relative w-full overflow-hidden flex-shrink-0" style={{ aspectRatio: "4/3" }}>
                       <Image
                         src={service.image}
@@ -73,7 +74,7 @@ export default function ServicesSection() {
                         sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
                         loading="lazy"
                       />
-                      {/* Category badge only — no gradients */}
+                      {/* Glassmorphism category badge */}
                       <div className="absolute top-3 left-3 z-10">
                         <span
                           className="inline-flex items-center gap-1.5 px-2.5 py-[5px] rounded-lg font-body text-[9.5px] font-bold tracking-[0.1em] uppercase"
@@ -91,9 +92,9 @@ export default function ServicesSection() {
                       </div>
                     </div>
 
-                    {/* ── Content ── */}
+                    {/* Content */}
                     <div className="flex flex-col flex-1 px-5 pt-4 pb-5 md:px-6 md:pt-5 md:pb-6">
-                      {/* Thin gold accent line */}
+                      {/* Gold accent line */}
                       <div className="mb-3 h-[2px] w-8 rounded-full"
                         style={{ background: "linear-gradient(90deg, hsl(37,90%,52%), hsl(30,98%,44%))" }} />
 
@@ -115,12 +116,12 @@ export default function ServicesSection() {
                         {service.shortDesc}
                       </p>
 
-                      {/* Book Now CTA */}
+                      {/* Book Now */}
                       <a
                         href={waUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group/btn mt-4 w-full flex items-center justify-center gap-2 rounded-xl h-11 lg:h-13 font-body font-bold text-[12px] lg:text-[13px] tracking-[0.07em] uppercase transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden"
+                        className="group/btn relative z-20 mt-4 w-full flex items-center justify-center gap-2 rounded-xl h-11 lg:h-13 font-body font-bold text-[12px] lg:text-[13px] tracking-[0.07em] uppercase transition-all duration-300 hover:-translate-y-0.5 overflow-hidden"
                         style={{
                           background: "linear-gradient(135deg, hsl(37,92%,50%), hsl(30,98%,43%))",
                           color: "hsl(220,55%,10%)",
@@ -131,8 +132,17 @@ export default function ServicesSection() {
                           Book Now
                           <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
                         </span>
-                        {/* Shimmer sweep */}
                         <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/22 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full" />
+                      </a>
+
+                      {/* Learn More */}
+                      <a
+                        href={`/services/${service.slug}`}
+                        className="group/lm relative z-40 mt-2.5 flex items-center justify-center gap-1.5 font-body text-[12.5px] font-semibold py-1.5 transition-colors duration-200 hover:text-[hsl(220,55%,22%)] cursor-pointer"
+                        style={{ color: "hsl(220,15%,55%)" }}
+                      >
+                        Learn More
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/lm:translate-x-0.5" />
                       </a>
                     </div>
                   </article>

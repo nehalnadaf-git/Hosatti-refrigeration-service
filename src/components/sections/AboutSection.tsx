@@ -1,6 +1,6 @@
 // src/components/sections/AboutSection.tsx
 import Image from "next/image";
-import { ShieldCheck, Wrench, Package, ThumbsUp } from "lucide-react";
+import { ShieldCheck, Wrench, Package, ThumbsUp, Award } from "lucide-react";
 import { motion } from "motion/react";
 import ScrollReveal, { StaggerItem } from "@/components/shared/ScrollReveal";
 
@@ -37,15 +37,17 @@ export default function AboutSection() {
               <div
                 className="absolute -bottom-8 -left-4 sm:-bottom-9 sm:-left-6 md:-bottom-12 md:-left-8 rounded-2xl md:rounded-3xl bg-gradient-to-br from-navy/70 to-blue-900/40 backdrop-blur-xl px-4 py-3 sm:px-5 sm:py-4 md:px-7 md:py-5 z-20 shadow-[0_16px_40px_rgba(11,43,107,0.4),inset_0_1px_0_rgba(255,255,255,0.2)] border border-white/20 animate-[float-subtle_4s_ease-in-out_infinite]"
               >
-                <div className="flex items-center gap-2.5">
-                  <div className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-yellow-400 flex-shrink-0 shadow-[0_0_8px_rgba(250,204,21,0.6)]" />
-                  <p className="font-display text-[0.9rem] sm:text-[1.1rem] md:text-[1.35rem] font-bold text-white tracking-tight whitespace-nowrap drop-shadow-md">
-                    Jameer Hosatti
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <Award className="h-4 w-4 md:h-5 md:w-5 text-yellow-400 drop-shadow-sm" />
+                    <p className="font-display text-[1rem] sm:text-[1.1rem] md:text-[1.35rem] font-bold text-white tracking-tight whitespace-nowrap drop-shadow-md">
+                      Jameer Hosatti
+                    </p>
+                  </div>
+                  <p className="font-body text-[8.5px] sm:text-[9.5px] md:text-[11px] font-bold uppercase tracking-[0.22em] text-white/70 pl-[24px] md:pl-[28px]">
+                    Chief Technician
                   </p>
                 </div>
-                <p className="mt-0.5 font-body text-[8px] sm:text-[9.5px] md:text-[11px] font-bold uppercase tracking-[0.22em] text-white/70 pl-[22px] sm:pl-[26px]">
-                  Chief Technician
-                </p>
               </div>
 
               {/* Experience tag — Platinum White Glassmorphism */}

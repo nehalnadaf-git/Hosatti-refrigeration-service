@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: "What are your working hours for AC and fridge repair in Dharwad?",
-    a: "We are open every day including Sundays from 07:00 AM to 07:45 PM. Same-day service is available for urgent repairs.",
+    a: "We are open every day including Sundays from 07:00 AM to 07:45 PM. Quick service is available for urgent repairs.",
   },
   {
     q: "How do I book a refrigerator or AC repair service?",

@@ -20,20 +20,6 @@ export default function manifest(): MetadataRoute.Manifest {
       { src: "/PWA image/Jameer PWA.webp", sizes: "192x192", type: "image/webp", purpose: "any" },
       { src: "/PWA image/Jameer PWA.webp", sizes: "512x512", type: "image/webp", purpose: "maskable" },
     ],
-    screenshots: [
-      {
-        src: "/screenshots/desktop.png",
-        sizes: "1280x720",
-        type: "image/png",
-        label: "Hosatti Refrigeration Service — Desktop View",
-      },
-      {
-        src: "/screenshots/mobile.png",
-        sizes: "390x844",
-        type: "image/png",
-        label: "Hosatti Refrigeration Service — Mobile View",
-      },
-    ],
     shortcuts: [
       {
         name: "Book AC Repair",

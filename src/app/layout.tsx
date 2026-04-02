@@ -25,14 +25,14 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.hosatti.com"),
+  metadataBase: new URL("https://hosatti.com"),
   title: {
     default:
       "Hosatti Refrigeration Service | AC, Fridge & Washing Machine Repair in Dharwad",
     template: "%s | Hosatti Refrigeration Service Dharwad",
   },
   description:
-    "Expert home appliance repair in Dharwad by Jameer Hosatti — 15+ years experience. Same-day AC, refrigerator, washing machine & air cooler repair. Certified technicians, genuine parts. Serving Dharwad & Hubli. Call now!",
+    "Expert home appliance repair in Dharwad by Jameer Hosatti — 15+ years experience. Quick AC, refrigerator, washing machine & air cooler repair. Doorstep service or walk-in workshop. Certified technicians, genuine parts. Call +91-7899472430 now!",
   keywords: [
     // AC / Air Conditioner
     "AC repair Dharwad",
@@ -70,10 +70,10 @@ export const metadata: Metadata = {
     // General / Brand / Location
     "home appliance repair Dharwad",
     "home appliance repair Jay Nagar Dharwad",
-    "home appliance repair Hubli Dharwad",
+    "doorstep appliance repair Dharwad",
     "Hosatti refrigeration service",
     "Jameer Hosatti Dharwad",
-    "same day appliance repair Dharwad",
+    "quick appliance repair Dharwad",
     "appliance repair near me Dharwad",
     "LG repair Dharwad",
     "Samsung repair Dharwad",
@@ -82,8 +82,8 @@ export const metadata: Metadata = {
     "Voltas repair Dharwad",
     "Godrej repair Dharwad",
     "Haier repair Dharwad",
-    "refrigeration service Karnataka",
-    "appliance repair Karnataka",
+    "appliance repair Dharwad Karnataka",
+    "Hosatti Refrigeration Service Jay Nagar",
   ],
   authors: [{ name: "Jameer Hosatti" }],
   creator: "Hosatti Refrigeration Service",
@@ -106,22 +106,22 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://www.hosatti.com",
+    url: "https://hosatti.com",
     siteName: "Hosatti Refrigeration Service",
     title:
       "Hosatti Refrigeration Service | Best AC & Fridge Repair in Dharwad",
     description:
-      "15+ years of trusted home appliance repair in Dharwad. AC, refrigerator, washing machine & air cooler. Same-day service. Genuine parts.",
+      "15+ years of trusted home appliance repair in Dharwad. AC, refrigerator, washing machine & air cooler. Quick service. Genuine parts.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/Jameer%20favicon.jpg",
         width: 1200,
         height: 630,
         alt: "Hosatti Refrigeration Service — AC & Appliance Repair Dharwad",
         type: "image/jpeg",
       },
       {
-        url: "/og-image-square.jpg",
+        url: "/Jameer%20favicon.jpg",
         width: 1200,
         height: 1200,
         alt: "Hosatti Refrigeration Service Dharwad",
@@ -133,12 +133,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hosatti Refrigeration Service | AC & Appliance Repair Dharwad",
     description:
-      "Expert AC, fridge, washing machine & air cooler repair in Dharwad. 15+ years exp. Same-day service.",
-    images: ["/og-image.jpg"],
+      "Expert AC, fridge, washing machine & air cooler repair in Dharwad. 15+ years exp. Quick service.",
+    images: ["/Jameer%20favicon.jpg"],
   },
   alternates: {
-    canonical: "https://www.hosatti.com",
-    languages: { "en-IN": "https://www.hosatti.com" },
+    canonical: "https://hosatti.com",
+    languages: { "en-IN": "https://hosatti.com" },
   },
   // verification: { google: "YOUR_REAL_TOKEN_HERE" }, // Add when ready to verify in Search Console
   icons: {
@@ -154,8 +154,8 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "IN-KA",
     "geo.placename": "Dharwad, Karnataka, India",
-    "geo.position": "15.4589;75.0078",
-    "ICBM": "15.4589, 75.0078",
+    "geo.position": "15.450056;74.9886131",
+    "ICBM": "15.450056, 74.9886131",
     "DC.language": "en-IN",
   },
 };

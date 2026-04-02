@@ -5,6 +5,7 @@ import {
   X, MessageCircle, Wrench, ArrowRight, ArrowLeft,
   CheckCircle2, PhoneCall, Zap, User, Phone,
   Snowflake, WashingMachine, Refrigerator, Wind, HelpCircle,
+  MapPin, Store,
 } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { buildWhatsAppURL } from "@/lib/whatsapp";
@@ -90,10 +91,13 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
   const [extraNote, setExtraNote] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [serviceType, setServiceType] = useState<"doorstep" | "walkin" | null>(null);
+  const [address, setAddress] = useState("");
 
   const reset = () => {
     setStep(1); setAppliance(null); setModel("");
     setSelectedProblems([]); setExtraNote(""); setName(""); setPhone("");
+    setServiceType(null); setAddress("");
   };
   const handleClose = () => { reset(); onClose(); };
 
@@ -118,23 +122,27 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
     const applianceLine = appliance?.id === "other"
       ? `\n*Appliance:* Other — ${model || "Not specified"}`
       : `\n*Appliance:* ${appliance?.label}${modelLine}`;
-    const msg = `Hello Hosatti Refrigeration Service!\n\nI'd like to book a repair service.\n\n*Name:* ${name}\n*Phone:* ${phone}${applianceLine}\n*Problem:* ${prob || "Not specified"}\n\nPlease let me know the available slots. Thank you!`;
+
+    const serviceTypeLine = serviceType === "doorstep"
+      ? `\n*Service Type:* Doorstep Service\n*Address:* ${address.trim() || "Will share on call"}`
+      : `\n*Service Type:* Walk-in at Workshop (Jay Nagar, Dharwad)`;
+
+    const msg = `Hello Hosatti Refrigeration Service!\n\nI'd like to book a repair service.\n\n*Name:* ${name}\n*Phone:* ${phone}${serviceTypeLine}${applianceLine}\n*Problem:* ${prob || "Not specified"}\n\nPlease let me know the available slots. Thank you!`;
     window.open(buildWhatsAppURL(msg), "_blank", "noopener,noreferrer");
     handleClose();
   };
 
+  // Contact step is valid when name + phone + service type are filled, and address if doorstep
+  const contactValid = name.trim() && phone.trim() && serviceType &&
+    (serviceType === "walkin" || (serviceType === "doorstep" && address.trim()));
+
   // Step 3 is skipped for "Other" (no problem chips, just freetext)
   const goToStep3 = () => {
     if (appliance?.isOther) {
-      setStep(4); // skip to contact
+      setStep(4); // skip to "describe issue"
     } else {
       setStep(3);
     }
-  };
-
-  const step3Back = () => {
-    if (appliance?.isOther) setStep(2);
-    else setStep(2);
   };
 
   return (
@@ -182,7 +190,7 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
             </>
           )}
 
-          {/* Steps 2–4 header */}
+          {/* Steps 2–5 header */}
           {step >= 2 && <StepHeader step={step} appliance={appliance} onClose={handleClose} />}
 
           {/* STEP 2 — Pick appliance */}
@@ -254,7 +262,7 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
             </div>
           )}
 
-          {/* STEP 4 (for "Other") — what they need to repair + freetex */}
+          {/* STEP 4 (for "Other") — what they need to repair + freetext */}
           {step === 4 && appliance?.isOther && (
             <div className="px-4 pb-4 pt-3 lg:px-8 lg:pb-8 lg:pt-6 flex flex-col gap-2 lg:gap-4">
               <p className="font-heading font-bold" style={{ fontSize: "clamp(0.95rem,2.5vw,1.4rem)", letterSpacing: "-0.02em", color: C.text }}>Tell us what you need</p>
@@ -270,10 +278,12 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
             </div>
           )}
 
-          {/* STEP 4 (normal) or STEP 5 (other) — Contact details */}
+          {/* STEP 4 (normal) or STEP 5 (other) — Contact + Service Type */}
           {((step === 4 && !appliance?.isOther) || step === 5) && (
-            <div className="px-4 pb-5 pt-3 lg:px-8 lg:pb-8 lg:pt-6 flex flex-col gap-2 lg:gap-4">
+            <div className="px-4 pb-5 pt-3 lg:px-8 lg:pb-8 lg:pt-6 flex flex-col gap-3 lg:gap-4">
               <p className="font-heading font-bold" style={{ fontSize: "clamp(0.95rem,2.5vw,1.4rem)", letterSpacing: "-0.02em", color: C.text }}>Your details</p>
+
+              {/* Appliance summary chip */}
               {appliance && (
                 <div className="rounded-xl lg:rounded-2xl p-4 lg:p-5 flex items-center gap-2 lg:gap-4" style={{ background: C.goldLight, border: `1px solid ${C.goldBorder}` }}>
                   <div className="flex-shrink-0 h-8 w-8 lg:h-12 lg:w-12 rounded-xl flex items-center justify-center" style={{ background: appliance.iconBg, color: appliance.iconColor }}>
@@ -291,22 +301,116 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
                   <Zap className="h-3 w-3 lg:h-5 lg:w-5 flex-shrink-0" style={{ color: C.gold }} />
                 </div>
               )}
+
+              {/* Name */}
               <div className="flex flex-col gap-1.5 lg:gap-2">
                 <label className="font-body text-[11px] lg:text-[14px] font-semibold flex items-center gap-2" style={{ color: C.text }}><User className="h-3 w-3 lg:h-4 lg:w-4" style={{ color: C.gold }} /> Your full name</label>
                 <LightInput placeholder="e.g. Raj Patel" value={name} onChange={setName} />
               </div>
+
+              {/* Phone */}
               <div className="flex flex-col gap-1.5 lg:gap-2">
                 <label className="font-body text-[11px] lg:text-[14px] font-semibold flex items-center gap-2" style={{ color: C.text }}><Phone className="h-3 w-3 lg:h-4 lg:w-4" style={{ color: C.gold }} /> Phone number</label>
                 <LightInput placeholder="e.g. 98765 43210" value={phone} onChange={setPhone} type="tel" />
               </div>
+
+              {/* ── Service Type Selector ── */}
+              <div className="flex flex-col gap-2 lg:gap-3">
+                <label className="font-body text-[11px] lg:text-[14px] font-semibold" style={{ color: C.text }}>
+                  How would you like the service?
+                </label>
+                <div className="grid grid-cols-2 gap-2 lg:gap-3">
+                  {/* Doorstep */}
+                  <button
+                    type="button"
+                    onClick={() => setServiceType("doorstep")}
+                    className="flex flex-col items-center gap-2 lg:gap-3 rounded-xl lg:rounded-2xl p-3 lg:p-4 transition-all duration-300"
+                    style={{
+                      background: serviceType === "doorstep" ? "rgba(245,166,35,0.10)" : C.surface,
+                      border: serviceType === "doorstep" ? `2px solid rgba(245,166,35,0.55)` : `2px solid ${C.border}`,
+                      transform: serviceType === "doorstep" ? "translateY(-2px)" : "translateY(0)",
+                      boxShadow: serviceType === "doorstep" ? "0 4px 16px rgba(245,166,35,0.15)" : "none",
+                    }}
+                  >
+                    <div className="h-9 w-9 lg:h-12 lg:w-12 rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(135deg,#fef3c7,#fde68a)", color: "#b45309" }}>
+                      <MapPin className="h-4 w-4 lg:h-5 lg:w-5" />
+                    </div>
+                    <div className="text-center">
+                      <p className="font-body font-bold text-[11px] lg:text-[13px]" style={{ color: serviceType === "doorstep" ? C.navy : C.text }}>Doorstep Service</p>
+                      <p className="font-body text-[9px] lg:text-[11px] mt-0.5" style={{ color: C.textMuted }}>Technician comes to you</p>
+                    </div>
+                    {serviceType === "doorstep" && <CheckCircle2 className="h-3 w-3 lg:h-4 lg:w-4" style={{ color: C.gold }} />}
+                  </button>
+
+                  {/* Walk-in */}
+                  <button
+                    type="button"
+                    onClick={() => { setServiceType("walkin"); setAddress(""); }}
+                    className="flex flex-col items-center gap-2 lg:gap-3 rounded-xl lg:rounded-2xl p-3 lg:p-4 transition-all duration-300"
+                    style={{
+                      background: serviceType === "walkin" ? "rgba(14,165,233,0.06)" : C.surface,
+                      border: serviceType === "walkin" ? `2px solid rgba(14,165,233,0.35)` : `2px solid ${C.border}`,
+                      transform: serviceType === "walkin" ? "translateY(-2px)" : "translateY(0)",
+                      boxShadow: serviceType === "walkin" ? "0 4px 16px rgba(14,165,233,0.10)" : "none",
+                    }}
+                  >
+                    <div className="h-9 w-9 lg:h-12 lg:w-12 rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(135deg,#e0f2fe,#bae6fd)", color: "#0369a1" }}>
+                      <Store className="h-4 w-4 lg:h-5 lg:w-5" />
+                    </div>
+                    <div className="text-center">
+                      <p className="font-body font-bold text-[11px] lg:text-[13px]" style={{ color: serviceType === "walkin" ? "#0369a1" : C.text }}>Walk-in at Workshop</p>
+                      <p className="font-body text-[9px] lg:text-[11px] mt-0.5" style={{ color: C.textMuted }}>Jay Nagar, Dharwad</p>
+                    </div>
+                    {serviceType === "walkin" && <CheckCircle2 className="h-3 w-3 lg:h-4 lg:w-4" style={{ color: "#0369a1" }} />}
+                  </button>
+                </div>
+
+                {/* Walk-in info note */}
+                {serviceType === "walkin" && (
+                  <div className="rounded-xl p-3 lg:p-4" style={{ background: "rgba(14,165,233,0.06)", border: "1px solid rgba(14,165,233,0.20)" }}>
+                    <p className="font-body text-[10px] lg:text-[12px] font-semibold" style={{ color: "#0369a1" }}>Our Workshop Address</p>
+                    <p className="font-body text-[10px] lg:text-[12px] mt-1" style={{ color: C.textSub }}>
+                      Jay Nagar, Opp Gurukul Academy, Saptapur Last Stop, Dharwad – 580001
+                    </p>
+                    <p className="font-body text-[9px] lg:text-[11px] mt-1.5" style={{ color: C.textMuted }}>
+                      Mon–Sat: 9:30 AM – 7:00 PM &nbsp;|&nbsp; Sun: 9:30 AM – 1:00 PM
+                    </p>
+                  </div>
+                )}
+
+                {/* Doorstep address field */}
+                {serviceType === "doorstep" && (
+                  <div className="flex flex-col gap-1.5 lg:gap-2">
+                    <label className="font-body text-[11px] lg:text-[14px] font-semibold flex items-center gap-2" style={{ color: C.text }}>
+                      <MapPin className="h-3 w-3 lg:h-4 lg:w-4" style={{ color: C.gold }} />
+                      Your address in Dharwad
+                    </label>
+                    <LightTextarea
+                      placeholder="e.g. #12, Vidyanagar, Near Karnatak University, Dharwad – 580003"
+                      value={address}
+                      onChange={setAddress}
+                      rows={2}
+                    />
+                    <p className="font-body text-[9px] lg:text-[11px]" style={{ color: C.textMuted }}>
+                      Our technician will come directly to this address.
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* Action buttons */}
               <div className="flex gap-2 lg:gap-3 pt-1 lg:pt-2">
                 <GhostBtn onClick={() => appliance?.isOther ? setStep(4) : setStep(3)}><ArrowLeft className="h-3 w-3 lg:h-4 lg:w-4" /> Back</GhostBtn>
-                <button onClick={bookService} disabled={!name.trim() || !phone.trim()} className="flex-1 flex items-center justify-center gap-1.5 lg:gap-2 rounded-xl lg:rounded-2xl h-9 lg:h-12 font-body font-bold text-[11px] lg:text-[14px] transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed hover:-translate-y-0.5"
-                  style={{ background: "linear-gradient(135deg,hsl(37,90%,50%),hsl(30,95%,44%))", color: "hsl(216,50%,10%)", boxShadow: "0 4px 20px rgba(245,166,35,0.30)" }}>
+                <button
+                  onClick={bookService}
+                  disabled={!contactValid}
+                  className="flex-1 flex items-center justify-center gap-1.5 lg:gap-2 rounded-xl lg:rounded-2xl h-9 lg:h-12 font-body font-bold text-[11px] lg:text-[14px] transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed hover:-translate-y-0.5"
+                  style={{ background: "linear-gradient(135deg,hsl(37,90%,50%),hsl(30,95%,44%))", color: "hsl(216,50%,10%)", boxShadow: "0 4px 20px rgba(245,166,35,0.30)" }}
+                >
                   <MessageCircle className="h-3 w-3 lg:h-5 lg:w-5" />Book My Service
                 </button>
               </div>
-              <p className="text-center font-body text-[10px] lg:text-[12px] lg:pt-2" style={{ color: C.textMuted }}>Your details are pre-filled in WhatsApp — just hit send 🚀</p>
+              <p className="text-center font-body text-[10px] lg:text-[12px] lg:pt-1" style={{ color: C.textMuted }}>Your details are pre-filled in WhatsApp — just hit send</p>
             </div>
           )}
 
@@ -341,7 +445,7 @@ function StepHeader({ step, appliance, onClose }: { step: number; appliance: App
   const isOther = appliance?.isOther;
   const totalSteps = isOther ? 4 : 3;
   const stepIndex = isOther
-    ? (step === 2 ? 1 : step === 4 ? 2 : step === 5 ? 3 : step - 1)
+    ? (step === 2 ? 1 : step === 4 ? 2 : step === 5 ? 3 : step === 6 ? 4 : step - 1)
     : step - 1;
   const labels = isOther ? ["Appliance","Details","Contact"] : ["Appliance","Problem","Contact"];
 
@@ -442,4 +546,3 @@ function GhostBtn({ onClick, children }: { onClick: () => void; children: React.
     </button>
   );
 }
-

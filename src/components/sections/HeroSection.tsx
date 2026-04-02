@@ -1,7 +1,7 @@
 // src/components/sections/HeroSection.tsx
 "use client";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BUSINESS } from "@/lib/constants";
 
@@ -11,7 +11,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onBookService }: HeroSectionProps) {
   return (
-    <section id="home" className="relative w-full flex flex-col overflow-hidden bg-[#020817] leading-none">
+    <section id="home" className="relative w-full flex flex-col overflow-hidden bg-[#020817] leading-none" suppressHydrationWarning>
       {/* Web Banner */}
       <Image
         src="/Banner/Web Banner.webp"
@@ -55,16 +55,16 @@ export default function HeroSection({ onBookService }: HeroSectionProps) {
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
           </Button>
 
-          {/* Call Now — Glassmorphism button */}
+          {/* Call Now — Premium Glassmorphism button */}
           <a
             href={`tel:${BUSINESS.phone.replace(/-/g, "")}`}
             suppressHydrationWarning
-            className="flex-1 group relative flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl h-[42px] sm:h-[52px] font-body font-bold text-[11px] sm:text-[13px] tracking-[0.08em] uppercase transition-all duration-300 hover:-translate-y-0.5 overflow-hidden text-white bg-[rgba(255,255,255,0.15)] [backdrop-filter:blur(16px)] [-webkit-backdrop-filter:blur(16px)] border border-[rgba(255,255,255,0.30)] shadow-[0_4px_20px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.25)]"
+            className="flex-1 group relative flex items-center justify-center gap-2 sm:gap-2.5 rounded-xl h-[42px] sm:h-[52px] font-body font-bold text-[11px] sm:text-[13px] tracking-[0.08em] uppercase transition-all duration-300 hover:-translate-y-0.5 overflow-hidden text-white bg-[rgba(255,255,255,0.06)] [backdrop-filter:blur(24px)] [-webkit-backdrop-filter:blur(24px)] border border-[rgba(255,255,255,0.15)] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.20)] hover:bg-[rgba(255,255,255,0.1)] hover:border-white/30"
           >
-            <span className="relative text-[14px] sm:text-[16px] flex-shrink-0">📞</span>
-            <span>Call Now</span>
+            <PhoneCall className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white/90 group-hover:text-white transition-colors drop-shadow-sm" />
+            <span className="drop-shadow-sm text-white/90 group-hover:text-white transition-colors">Call Now</span>
             {/* Shimmer */}
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
           </a>
 
         </div>

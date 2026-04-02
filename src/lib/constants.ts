@@ -16,8 +16,8 @@ export const BUSINESS = {
     full: "Jaya Nagar, Opp Gurukul Academy, Saptapur Last Stop, Jay Nagar, Dharwad, Karnataka 580001, India",
   },
   geo: {
-    lat: 15.4589,
-    lng: 75.0078,
+    lat: 15.450056,
+    lng: 74.9886131,
   },
   experience: "15+ Years",
   founded: "2009",
@@ -31,9 +31,9 @@ export const BUSINESS = {
     "Mitsubishi", "Siemens", "Electrolux", "Sharp", "Onida",
     "BPL", "Kelvinator", "TCL",
   ],
-  url: "https://www.hosatti.com",
+  url: "https://hosatti.com",
   social: {
-    google: "REPLACE_WITH_GOOGLE_MAPS_CID",
+    google: "CQpHRE2LyvxOEBM",
   },
 } as const;
 

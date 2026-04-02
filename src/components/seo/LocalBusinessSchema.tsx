@@ -11,21 +11,21 @@ export function LocalBusinessSchema() {
     alternateName: "Hosatti Refrigeration Dharwad",
     slogan: "Dharwad's Most Trusted Appliance Repair Experts",
     description:
-      "Expert home appliance repair in Dharwad — AC, refrigerator, washing machine & air cooler. 15+ years experience. Same-day service with certified technicians and genuine parts.",
+      "Expert home appliance repair in Dharwad — AC, refrigerator, washing machine & air cooler. 15+ years experience. Quick service with certified technicians and genuine parts.",
     url: BUSINESS.url,
     telephone: BUSINESS.phone,
     email: BUSINESS.email,
     foundingDate: BUSINESS.founded,
     logo: {
       "@type": "ImageObject",
-      url: `${BUSINESS.url}/PWA image/Jameer PWA.webp`,
+      url: `${BUSINESS.url}/PWA%20image/Jameer%20PWA.webp`,
       width: 512,
       height: 512,
     },
     image: [
-      `${BUSINESS.url}/Banner/Web Banner.webp`,
+      `${BUSINESS.url}/Banner/Web%20Banner.webp`,
       `${BUSINESS.url}/Jameer/Jameer.webp`,
-      `${BUSINESS.url}/Store image/Store.webp`,
+      `${BUSINESS.url}/Store%20image/Store.webp`,
     ],
     founder: {
       "@type": "Person",
@@ -43,8 +43,8 @@ export function LocalBusinessSchema() {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: BUSINESS.geo.lat,
-      longitude: BUSINESS.geo.lng,
+      latitude: 15.450056,
+      longitude: 74.9886131,
     },
     hasMap: `https://maps.google.com/?q=${BUSINESS.geo.lat},${BUSINESS.geo.lng}`,
     openingHoursSpecification: [
@@ -65,8 +65,7 @@ export function LocalBusinessSchema() {
     currenciesAccepted: "INR",
     paymentAccepted: "Cash, UPI, Google Pay, Paytm",
     areaServed: [
-      { "@type": "City", name: "Dharwad", geoContains: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: BUSINESS.geo.lat, longitude: BUSINESS.geo.lng }, geoRadius: "20000" } },
-      { "@type": "City", name: "Hubli" },
+      { "@type": "City", name: "Dharwad" },
     ],
     knowsAbout: [
       "AC Repair", "Air Conditioner Service", "Refrigerator Repair", "Fridge Repair",
@@ -92,8 +91,8 @@ export function LocalBusinessSchema() {
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "120",
+      ratingValue: "5.0",
+      reviewCount: "4",
       bestRating: "5",
       worstRating: "1",
     },
@@ -102,26 +101,33 @@ export function LocalBusinessSchema() {
         "@type": "Review",
         author: { "@type": "Person", name: "Jakeer" },
         reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-        reviewBody: "Hosatti Refrigeration Service is excellent! The workers are very fast and do a great job. They fixed my fridge quickly and it works perfectly now. Highly recommend for any refrigeration needs!",
+        reviewBody: "Hosatti Refrigeration Service is excellent! The workers are very fast and do a great job. They fixed my fridge quickly — arrived on time and finished in no time. Friendly and helpful. Highly recommend for any refrigeration needs!",
         datePublished: "2024-11-01",
       },
       {
         "@type": "Review",
         author: { "@type": "Person", name: "Shakeel Shaikh" },
         reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-        reviewBody: "I had a great experience with Hosatti Refrigeration Service! They fixed my fridge quickly. The price was fair and the service was excellent.",
+        reviewBody: "Great experience with Hosatti Refrigeration! Friendly and helpful team. Fixed my fridge quickly at a fair price. Very happy with their service and will definitely call them again. I recommend Hosatti to everyone!",
         datePublished: "2024-12-10",
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Shiv Sg" },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody: "Fantastic job fixing my refrigerator quickly. The service was excellent and the price was fair. Their team was very friendly and professional throughout. Highly recommend Hosatti for any home appliance repair!",
+        datePublished: "2025-01-05",
       },
       {
         "@type": "Review",
         author: { "@type": "Person", name: "Nehal Nadaf" },
         reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-        reviewBody: "Extremely satisfied! Jameer is our family's go-to washing machine and AC technician. He always responds quickly when an appliance breaks down, diagnoses the issue immediately, and has it running perfectly in no time.",
+        reviewBody: "Extremely satisfied! Jameer is our family's go-to washing machine and AC technician. He always responds quickly when an appliance breaks down, diagnoses the issue immediately, and has it running perfectly in no time. Professional, polite, and completely transparent with pricing!",
         datePublished: "2025-01-15",
       },
     ],
     sameAs: [
-      `https://g.co/kgs/${BUSINESS.social.google}`,
+      `https://g.page/r/${BUSINESS.social.google}/review`,
       `https://wa.me/${BUSINESS.whatsapp}`,
     ],
   };

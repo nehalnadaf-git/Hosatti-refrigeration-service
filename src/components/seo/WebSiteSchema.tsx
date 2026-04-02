@@ -14,7 +14,7 @@ export function WebSiteSchema() {
     ],
     url: BUSINESS.url,
     description:
-      "Expert home appliance repair in Dharwad — AC, refrigerator, washing machine & air cooler. 15+ years experience. Same-day service.",
+      "Expert home appliance repair in Dharwad — AC, refrigerator, washing machine & air cooler. 15+ years experience. Quick service.",
     inLanguage: "en-IN",
     publisher: {
       "@type": "LocalBusiness",
