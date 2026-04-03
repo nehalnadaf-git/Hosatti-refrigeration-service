@@ -85,15 +85,18 @@ export default function EmergencyPage() {
                   </a>
                 </div>
                 <div className="rounded-2xl border-2 border-yellow-400/30 bg-yellow-400/5 p-6 text-center shadow-sm">
-                  <p className="font-body text-[13px] font-bold uppercase tracking-[0.12em] text-foreground mb-2">🏪 Walk-in Workshop</p>
+                  <p className="font-body text-[13px] font-bold uppercase tracking-[0.12em] text-foreground mb-2">Walk-in Workshop</p>
                   <p className="font-body text-[13px] text-muted-foreground mb-4 leading-[1.7]">
                     Bring your appliance to Jay Nagar, Saptapur Last Stop — get quick repair on the spot.
                   </p>
                   <a href={waUrl} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl py-3 font-body font-bold text-[13px] uppercase tracking-[0.07em] transition-all hover:-translate-y-0.5"
-                    style={{ background: "linear-gradient(135deg,hsl(37,92%,52%),hsl(30,98%,45%))", color: "hsl(216,50%,10%)" }}
+                    className="group relative inline-flex w-full items-center justify-center gap-2 rounded-xl py-3 font-body font-bold text-[13px] uppercase tracking-[0.07em] transition-all hover:-translate-y-0.5 overflow-hidden"
+                    style={{ background: "linear-gradient(135deg,hsl(37,92%,52%),hsl(30,98%,45%))", color: "hsl(216,50%,10%)", boxShadow: "0 3px 14px rgba(245,166,35,0.28)" }}
                   >
-                    💬 WhatsApp Us
+                    <span className="relative z-10 flex items-center gap-1.5">
+                      Book Service
+                    </span>
+                    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/22 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
                   </a>
                 </div>
               </div>
