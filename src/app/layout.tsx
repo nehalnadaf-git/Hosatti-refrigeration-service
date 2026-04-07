@@ -143,12 +143,15 @@ export const metadata: Metadata = {
   // verification: { google: "YOUR_REAL_TOKEN_HERE" }, // Add when ready to verify in Search Console
   icons: {
     icon: [
-      { url: "/Jameer%20favicon%20circle.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/Jameer%20favicon%20circle.png", type: "image/png", sizes: "32x32" },
+      { url: "/Jameer%20favicon%20circle.png", type: "image/png", sizes: "16x16" },
       { url: "/PWA image/Jameer PWA.webp", sizes: "192x192", type: "image/webp" },
     ],
     apple: [
       { url: "/PWA image/Jameer PWA.webp", sizes: "180x180", type: "image/webp" },
     ],
+    shortcut: "/favicon.ico",
   },
   manifest: "/manifest.webmanifest",
   other: {
@@ -185,6 +188,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://wa.me" />
         <link rel="dns-prefetch" href="https://api.whatsapp.com" />
+        {/* Favicon — explicit link tags for Google Search crawler */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/Jameer%20favicon%20circle.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/PWA image/Jameer PWA.webp" />
       </head>
       <body className="antialiased bg-white text-gray-900" suppressHydrationWarning>
         {/* Skip to main content for accessibility + SEO crawlability */}

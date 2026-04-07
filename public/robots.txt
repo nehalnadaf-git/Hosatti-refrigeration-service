@@ -3,5 +3,7 @@ Allow: /
 Allow: /_next/image/
 Allow: /_next/static/
 Disallow: /api/
+Disallow: /manifest.webmanifest
+Disallow: /*.webmanifest$
 
 Sitemap: https://hosatti.com/sitemap.xml

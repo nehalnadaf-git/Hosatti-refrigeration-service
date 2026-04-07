@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Hosatti Refrigeration Service Dharwad",
   description: "Privacy Policy for Hosatti Refrigeration Service. Learn how we handle your personal information when you contact us for appliance repair in Dharwad.",
   alternates: { canonical: `${SEO.baseUrl}/privacy-policy` },
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 };
 
 export default function PrivacyPolicyPage() {

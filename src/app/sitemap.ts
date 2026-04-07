@@ -43,6 +43,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url("/blog", 0.65),
     ...BLOG_POSTS.map((b) => url(`/blog/${b.slug}`, 0.65)),
 
-    // Note: /privacy-policy and /terms-of-service excluded (robots noindex)
+    // Legal pages (indexable)
+    url("/privacy-policy", 0.5),
+    url("/terms-of-service", 0.5),
   ];
 }

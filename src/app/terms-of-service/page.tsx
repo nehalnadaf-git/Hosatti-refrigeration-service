@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Terms of Service | Hosatti Refrigeration Service Dharwad",
   description: "Terms of Service for Hosatti Refrigeration Service, Dharwad. Read our service terms, warranty conditions, and payment policy.",
   alternates: { canonical: `${SEO.baseUrl}/terms-of-service` },
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 };
 
 export default function TermsPage() {
