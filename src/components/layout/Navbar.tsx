@@ -2,7 +2,6 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, ArrowRight, PhoneCall } from "lucide-react";
 import { BUSINESS } from "@/lib/constants";
@@ -153,21 +152,6 @@ export default function Navbar() {
                 className="flex items-center gap-3 shrink-0 group"
                 aria-label="Hosatti Refrigeration Service — Home"
               >
-                {/* Profile photo — plain circle, no ring */}
-                <div
-                  className="relative shrink-0 rounded-full overflow-hidden"
-                  style={{ width: "40px", height: "40px" }}
-                >
-                  <Image
-                    src="/Jameer/Jameer.webp"
-                    alt="Jameer Hosatti — Owner"
-                    fill
-                    sizes="40px"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    priority
-                  />
-                </div>
-
                 {/* Brand text */}
                 <div className="flex flex-col justify-center gap-[2px] leading-none">
                   <span

@@ -51,16 +51,6 @@ export default function Footer({ onBookService }: FooterProps) {
 
               {/* Profile image + brand name */}
               <div className="flex items-center gap-3 mb-5">
-                <div
-                  className="relative shrink-0 rounded-full overflow-hidden"
-                  style={{ width: "52px", height: "52px" }}
-                >
-                  <img
-                    src="/Jameer/Jameer.webp"
-                    alt="Jameer Hosatti — Owner"
-                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
-                  />
-                </div>
                 <div className="flex flex-col justify-center gap-[3px] leading-none">
                   <span className="font-display font-bold text-white" style={{ fontSize: "1.25rem", letterSpacing: "-0.025em" }}>
                     Hosatti
