@@ -114,17 +114,10 @@ export const metadata: Metadata = {
       "15+ years of trusted home appliance repair in Dharwad. AC, refrigerator, washing machine & air cooler. Quick service. Genuine parts.",
     images: [
       {
-        url: "/Jameer%20favicon.jpg",
+        url: "/og-image/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Hosatti Refrigeration Service — AC & Appliance Repair Dharwad",
-        type: "image/jpeg",
-      },
-      {
-        url: "/Jameer%20favicon.jpg",
-        width: 1200,
-        height: 1200,
-        alt: "Hosatti Refrigeration Service Dharwad",
         type: "image/jpeg",
       },
     ],
@@ -134,7 +127,7 @@ export const metadata: Metadata = {
     title: "Hosatti Refrigeration Service | AC & Appliance Repair Dharwad",
     description:
       "Expert AC, fridge, washing machine & air cooler repair in Dharwad. 15+ years exp. Quick service.",
-    images: ["/Jameer%20favicon.jpg"],
+    images: ["/og-image/og-image.jpg"],
   },
   alternates: {
     canonical: "https://hosatti.com",
