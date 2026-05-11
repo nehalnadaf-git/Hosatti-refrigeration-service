@@ -23,6 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url("/services", 0.9, "monthly"),
     url("/emergency-repair-dharwad", 0.9, "monthly"),
 
+    // Dedicated "Service" SEO landing pages (top-of-funnel maintenance traffic)
+    url("/ac-service-dharwad", 0.88, "monthly"),
+    url("/refrigerator-service-dharwad", 0.88, "monthly"),
+    url("/washing-machine-service-dharwad", 0.88, "monthly"),
+    url("/air-cooler-service-dharwad", 0.88, "monthly"),
+
     // 12 Service pages
     ...SERVICES.map((s) => url(`/services/${s.slug}`, 0.85)),
 
