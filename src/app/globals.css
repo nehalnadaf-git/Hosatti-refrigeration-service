@@ -466,6 +466,26 @@
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-4px); }
 }
+
+/* ── About Section Badge Float — single shared keyframe, no backdrop-blur ── */
+/* Uses a smaller 5px travel on mobile for a premium, not-distracting feel. */
+.about-float {
+  animation: about-float-anim 4s ease-in-out infinite;
+  will-change: transform;
+}
+.about-float-delay {
+  animation: about-float-anim 5s ease-in-out infinite;
+  animation-delay: 1.2s;
+  will-change: transform;
+}
+@keyframes about-float-anim {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-5px); }
+}
+/* Stop float on reduced-motion — already covered by global rule but explicit for clarity */
+@media (prefers-reduced-motion: reduce) {
+  .about-float, .about-float-delay { animation: none; }
+}
 @keyframes reveal-clip {
   from { clip-path: inset(0 100% 0 0); }
   to   { clip-path: inset(0 0% 0 0); }
