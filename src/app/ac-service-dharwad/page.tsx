@@ -1,13 +1,13 @@
 // src/app/ac-service-dharwad/page.tsx
 import type { Metadata } from "next";
-import Link from "next/link";
-import { PhoneCall, Shield, Star, MapPin, Clock, Wind, Zap, Thermometer, ArrowRight, MessageCircle } from "lucide-react";
+import { Wind, Zap, Thermometer } from "lucide-react";
 import { SEO } from "@/lib/seo";
-import { BUSINESS } from "@/lib/constants";
-import { buildWhatsAppURL } from "@/lib/whatsapp";
+import { SERVICES, getServiceBySlug } from "@/lib/services";
 import PageHero from "@/components/shared/PageHero";
+import ServiceCard from "@/components/shared/ServiceCard";
 import FAQAccordion from "@/components/shared/FAQAccordion";
 import TrustBadges from "@/components/shared/TrustBadges";
+import WhatsAppCTA from "@/components/shared/WhatsAppCTA";
 import Footer from "@/components/layout/Footer";
 import ScrollReveal, { StaggerItem } from "@/components/shared/ScrollReveal";
 
@@ -29,8 +29,6 @@ export const metadata: Metadata = {
     url: `${SEO.baseUrl}/ac-service-dharwad`,
   },
 };
-
-const waUrl = buildWhatsAppURL("Hello Hosatti!\n\nI need AC Service in Dharwad.\n\nAC Brand: \nService Needed: \nLocation in Dharwad: \n\nPlease let me know your availability. Thank you!");
 
 const SERVICE_STEPS = [
   { icon: "🔬", title: "Full AC Diagnostic", desc: "Complete system health check — refrigerant pressure, PCB continuity, and thermostat accuracy." },
@@ -78,6 +76,9 @@ const faqSchema = {
 };
 
 export default function AcServiceDharwadPage() {
+  const relatedSlugs = ["ac-repair-service-dharwad", "ac-gas-refilling-service-dharwad", "ac-deep-cleaning-service-dharwad"];
+  const related = relatedSlugs.map((s) => getServiceBySlug(s)).filter(Boolean) as NonNullable<ReturnType<typeof getServiceBySlug>>[];
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -92,30 +93,6 @@ export default function AcServiceDharwadPage() {
       />
 
       <main>
-        {/* Trust Bar */}
-        <section className="bg-white border-b border-border/40 py-5">
-          <div className="container mx-auto px-5 md:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                { Icon: Shield, label: "15+ Years Experience", sub: "Serving Dharwad since 2009" },
-                { Icon: Star, label: "All Major Brands", sub: "LG, Samsung, Daikin, Voltas & 13 more" },
-                { Icon: MapPin, label: "Jay Nagar Workshop", sub: "Opp. Gurukul Academy, Saptapur Last Stop" },
-                { Icon: Clock, label: "Same-Day Service", sub: "Book early for guaranteed quick visit" },
-              ].map(({ Icon, label, sub }) => (
-                <div key={label} className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400/20 to-yellow-400/5 border border-yellow-400/20">
-                    <Icon className="h-5 w-5 text-yellow-600" />
-                  </div>
-                  <div>
-                    <p className="font-body text-[13px] font-bold text-foreground leading-tight">{label}</p>
-                    <p className="font-body text-[11px] text-muted-foreground">{sub}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Hyper-Local Empathy Block */}
         <section className="relative bg-light-bg py-16 md:py-20 overflow-hidden">
           <div className="container mx-auto px-5 md:px-8">
@@ -149,22 +126,9 @@ export default function AcServiceDharwadPage() {
                   <h2 className="font-display text-foreground pb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)" }}>
                     AC Service is Not Optional in <span className="bg-gradient-to-r from-navy to-[hsl(220,85%,38%)] bg-clip-text text-transparent italic px-1">Dharwad</span>
                   </h2>
-                  <p className="font-body text-[15px] md:text-[17px] text-muted-foreground leading-[1.8] mb-6">
+                  <p className="font-body text-[15px] md:text-[17px] text-muted-foreground leading-[1.8]">
                     Dharwad is not a low-pollution city. The combination of construction dust, HESCOM power fluctuations, and extreme summer temperatures degrades your AC up to 3× faster than the manufacturer&apos;s recommended service interval. Most ACs in Dharwad that have not been professionally serviced in the past year are already operating at significantly reduced efficiency — costing more in electricity and silently destroying the compressor.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <a href={`tel:${BUSINESS.phone}`}
-                      className="flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 font-body font-bold text-[13px] uppercase tracking-[0.07em] text-white transition-all duration-300 hover:-translate-y-0.5"
-                      style={{ background: "linear-gradient(135deg,hsl(220,85%,30%),hsl(220,85%,18%))", boxShadow: "0 8px 24px rgba(11,43,107,0.3)" }}
-                    >
-                      <PhoneCall className="h-4 w-4" /> Book AC Service Now
-                    </a>
-                    <a href={waUrl} target="_blank" rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 rounded-xl border-2 border-green-600/20 bg-green-50 px-6 py-3.5 font-body font-bold text-[13px] uppercase tracking-[0.07em] text-green-700 transition-all duration-300 hover:bg-green-100 hover:-translate-y-0.5"
-                    >
-                      <MessageCircle className="h-4 w-4" /> WhatsApp Us
-                    </a>
-                  </div>
                 </div>
               </ScrollReveal>
             </div>
@@ -200,25 +164,6 @@ export default function AcServiceDharwadPage() {
           </div>
         </section>
 
-        {/* Loss Aversion CTA */}
-        <section className="relative bg-gradient-to-br from-navy to-[hsl(220,85%,18%)] py-14 md:py-16 overflow-hidden">
-          <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle at 30% 50%, white 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
-          <div className="container mx-auto px-5 md:px-8 relative z-10 text-center max-w-3xl mx-auto">
-            <span className="font-body text-[11px] font-semibold uppercase tracking-[0.2em] text-yellow-400">The Cost of Skipping AC Service</span>
-            <h2 className="font-display text-white mt-3 mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)" }}>
-              A Skipped Service Today = A ₹8,000 Compressor Bill Tomorrow
-            </h2>
-            <p className="font-body text-[15px] text-white/80 leading-[1.8] mb-8">
-              A dust-blocked condenser forces your AC compressor to run at 140% rated load. Over 3–4 months, this silent abuse destroys the compressor winding — Dharwad&apos;s #1 cause of expensive AC failures in peak summer. A professional chemical service today costs a fraction of a compressor replacement.
-            </p>
-            <a href={`tel:${BUSINESS.phone}`}
-              className="inline-flex items-center justify-center gap-2 rounded-xl px-8 py-4 font-body font-bold text-[14px] uppercase tracking-[0.07em] text-navy bg-yellow-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-300"
-            >
-              <PhoneCall className="h-5 w-5" /> Call to Book — {BUSINESS.phone}
-            </a>
-          </div>
-        </section>
-
         {/* Brands */}
         <section className="relative bg-light-bg py-14">
           <div className="container mx-auto px-5 md:px-8 text-center">
@@ -232,9 +177,7 @@ export default function AcServiceDharwadPage() {
             </ScrollReveal>
             <div className="flex flex-wrap gap-2.5 justify-center">
               {BRANDS.map((b) => (
-                <span key={b} className="font-body text-[13px] font-semibold px-4 py-2 rounded-full border border-border/50 bg-white shadow-sm text-foreground hover:border-yellow-400/40 transition-colors">
-                  {b}
-                </span>
+                <span key={b} className="font-body text-[13px] font-semibold px-4 py-2 rounded-full border border-border/50 bg-white shadow-sm text-foreground hover:border-yellow-400/40 transition-colors">{b}</span>
               ))}
             </div>
           </div>
@@ -242,55 +185,31 @@ export default function AcServiceDharwadPage() {
 
         <TrustBadges heading="Why Dharwad Homeowners Choose Hosatti for AC Service" />
 
+        <WhatsAppCTA
+          heading="Book AC Service in Dharwad Today"
+          subheading="Doorstep service anywhere in Dharwad or walk into our Jay Nagar workshop. All brands, 15+ years experience."
+        />
+
         <FAQAccordion faqs={FAQS} eyebrow="Frequently Asked" heading="AC Service in Dharwad — Your Questions Answered" />
 
-        {/* Related Links */}
-        <section className="relative bg-white py-12 md:py-14">
-          <div className="container mx-auto px-5 md:px-8">
-            <ScrollReveal direction="blur">
-              <h2 className="font-display text-foreground mb-6 text-center" style={{ fontSize: "clamp(1.2rem, 2.5vw, 1.6rem)" }}>Related AC Services in Dharwad</h2>
-            </ScrollReveal>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {[
-                { href: "/services/ac-repair-service-dharwad", label: "AC Repair Service", desc: "Full diagnostics for AC not cooling, PCB faults & compressor issues." },
-                { href: "/services/ac-gas-refilling-service-dharwad", label: "AC Gas Refilling", desc: "Leak detection, repair & refrigerant recharge. All gas types." },
-                { href: "/services/ac-deep-cleaning-service-dharwad", label: "AC Deep Cleaning", desc: "Jet wash of coils, blower, drain pan & outer unit." },
-              ].map(({ href, label, desc }) => (
-                <Link key={href} href={href} className="group flex flex-col gap-2 rounded-2xl border border-border/40 bg-light-bg p-5 hover:border-yellow-400/30 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="flex items-center justify-between">
-                    <span className="font-body text-[14px] font-bold text-foreground">{label}</span>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-gold transition-colors" />
-                  </div>
-                  <p className="font-body text-[13px] text-muted-foreground leading-[1.6]">{desc}</p>
-                </Link>
-              ))}
+        {/* Related Services — real ServiceCards with images */}
+        {related.length > 0 && (
+          <section className="relative bg-white py-16 md:py-20">
+            <div className="container mx-auto px-5 md:px-8">
+              <ScrollReveal direction="blur">
+                <div className="mb-10 flex items-center gap-3">
+                  <div className="h-[2px] w-8 bg-gradient-to-r from-yellow-400 to-yellow-400/40 rounded-full" />
+                  <h2 className="font-body text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: "hsl(37,90%,55%)" }}>
+                    Related AC Services in Dharwad
+                  </h2>
+                </div>
+              </ScrollReveal>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                {related.map((s) => <ServiceCard key={s.slug} service={s} />)}
+              </div>
             </div>
-          </div>
-        </section>
-
-        {/* Final CTA */}
-        <section className="relative bg-light-bg py-12 border-t border-border/30">
-          <div className="container mx-auto px-5 md:px-8 text-center">
-            <h2 className="font-display text-foreground mb-3" style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)" }}>Book AC Service in Dharwad Today</h2>
-            <p className="font-body text-[15px] text-muted-foreground mb-6">Doorstep service anywhere in Dharwad • Walk-in workshop at Jay Nagar • All brands</p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href={`tel:${BUSINESS.phone}`}
-                className="flex items-center justify-center gap-2 rounded-xl px-8 py-4 font-body font-bold text-[14px] uppercase tracking-[0.07em] text-white transition-all duration-300 hover:-translate-y-0.5"
-                style={{ background: "linear-gradient(135deg,hsl(220,85%,30%),hsl(220,85%,18%))", boxShadow: "0 8px 24px rgba(11,43,107,0.3)" }}
-              >
-                <PhoneCall className="h-5 w-5" /> {BUSINESS.phone}
-              </a>
-              <a href={waUrl} target="_blank" rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-xl border-2 border-green-600/30 bg-green-50 px-8 py-4 font-body font-bold text-[14px] uppercase tracking-[0.07em] text-green-700 transition-all duration-300 hover:bg-green-100 hover:-translate-y-0.5"
-              >
-                <MessageCircle className="h-5 w-5" /> WhatsApp for Quick Reply
-              </a>
-            </div>
-            <p className="font-body text-[12px] text-muted-foreground mt-4">
-              📍 Workshop: Opp. Gurukul Academy, Saptapur Last Stop, Jay Nagar, Dharwad — {BUSINESS.openingHoursDisplay}
-            </p>
-          </div>
-        </section>
+          </section>
+        )}
       </main>
       <Footer />
     </>
