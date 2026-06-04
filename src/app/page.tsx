@@ -18,7 +18,7 @@ export default function HomePage() {
 
   return (
     <>
-      <HeroSection onBookService={openModal} />
+      <HeroSection />
       <AboutSection />
       <ServicesSection limit={9} showViewAllCTA />
       <BrandsSection />

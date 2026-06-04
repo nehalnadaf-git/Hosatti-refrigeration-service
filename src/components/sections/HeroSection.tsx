@@ -1,17 +1,23 @@
 // src/components/sections/HeroSection.tsx
 "use client";
 import Image from "next/image";
-import { ArrowRight, PhoneCall } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { BUSINESS } from "@/lib/constants";
+import { useEffect, useState } from "react";
 
-interface HeroSectionProps {
-  onBookService: () => void;
-}
+export default function HeroSection() {
+  const [visible, setVisible] = useState(true);
 
-export default function HeroSection({ onBookService }: HeroSectionProps) {
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY < 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <section id="home" className="relative w-full flex flex-col overflow-hidden bg-[#020817] leading-none" suppressHydrationWarning>
+    <section
+      id="home"
+      className="relative w-full flex flex-col overflow-hidden bg-[#020817] leading-none"
+      suppressHydrationWarning
+    >
       {/* Web Banner */}
       <Image
         src="/Banner/Web Banner.webp"
@@ -32,51 +38,148 @@ export default function HeroSection({ onBookService }: HeroSectionProps) {
         className="block md:hidden relative w-full h-auto mt-[68px] z-10"
         sizes="100vw"
       />
-
-      {/* CTA Buttons — positioned absolutely over the banner */}
-      <div className="absolute bottom-[52px] sm:bottom-[88px] md:bottom-[120px] lg:bottom-[140px] left-1/2 -translate-x-1/2 z-30 w-[88%] max-w-[520px]">
-        <div className="flex flex-row gap-2.5 sm:gap-3">
-
-          {/* Book Service — Gold primary */}
-          <Button
-            onClick={onBookService}
-            className="flex-1 relative group overflow-hidden rounded-xl h-[42px] sm:h-[52px] font-body font-bold text-[11px] sm:text-[13px] tracking-[0.08em] uppercase shadow-2xl transition-all duration-300 hover:-translate-y-0.5"
+      {/* ── Scroll-Down Indicator ── */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          bottom: "clamp(52px, 8vw, 108px)",
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 30,
+          opacity: visible ? 1 : 0,
+          pointerEvents: visible ? "auto" : "none",
+          transition: "opacity 0.55s cubic-bezier(0.22,1,0.36,1)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "6px",
+        }}
+      >
+        {/* Glass pill label — breathes in sync */}
+        <span
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "6px",
+            padding: "4px 12px 4px 10px",
+            borderRadius: "999px",
+            background: "rgba(255,255,255,0.07)",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+            border: "1px solid rgba(255,255,255,0.14)",
+            fontFamily: "var(--font-inter), system-ui, sans-serif",
+            fontSize: "clamp(9px, 1.8vw, 11px)",
+            fontWeight: 700,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase" as const,
+            color: "rgba(255,255,255,0.70)",
+            boxShadow: "0 4px 16px rgba(0,0,0,0.18)",
+            whiteSpace: "nowrap" as const,
+            animation: "scroll-breathe-label 2.4s ease-in-out infinite",
+          }}
+        >
+          {/* Gold dot — glows on inhale */}
+          <span
             style={{
-              background: "linear-gradient(135deg, hsl(37,92%,52%), hsl(30,98%,45%))",
-              color: "hsl(216,50%,10%)",
-              boxShadow: "0 4px 20px rgba(245,166,35,0.40), 0 1px 3px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.20)",
+              width: 5,
+              height: 5,
+              borderRadius: "50%",
+              background: "hsl(37,90%,55%)",
+              flexShrink: 0,
+              animation: "scroll-dot-glow 2.4s ease-in-out infinite",
+            }}
+          />
+          Scroll Down
+        </span>
+
+        {/* Chevron circle — scales + glows on inhale, ripple expands on exhale */}
+        <span style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          {/* Expanding ripple ring */}
+          <span
+            style={{
+              position: "absolute",
+              inset: -6,
+              borderRadius: "50%",
+              border: "1.5px solid hsl(37,90%,55%)",
+              animation: "scroll-ripple 2.4s ease-out infinite",
+              pointerEvents: "none",
+            }}
+          />
+          <svg
+            width="clamp(26px, 4.5vw, 36px)"
+            height="clamp(26px, 4.5vw, 36px)"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{
+              display: "block",
+              overflow: "visible",
+              animation: "scroll-breathe-svg 2.4s ease-in-out infinite",
             }}
           >
-            <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2">
-              Book Service
-              <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-            </span>
-            {/* Shimmer */}
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-          </Button>
+            <circle cx="16" cy="16" r="14" stroke="hsl(37,90%,55%)" strokeWidth="1" strokeOpacity="0.20" />
+            <circle cx="16" cy="16" r="10" fill="rgba(255,255,255,0.06)" stroke="hsl(37,90%,55%)" strokeWidth="1.4" strokeOpacity="0.65" />
+            <path d="M11 14.5L16 19.5L21 14.5" stroke="hsl(37,92%,55%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
 
-          {/* Call Now — Premium Glassmorphism button */}
-          <a
-            href={`tel:${BUSINESS.phone.replace(/-/g, "")}`}
-            suppressHydrationWarning
-            className="flex-1 group relative flex items-center justify-center gap-2 sm:gap-2.5 rounded-xl h-[42px] sm:h-[52px] font-body font-bold text-[11px] sm:text-[13px] tracking-[0.08em] uppercase transition-all duration-300 hover:-translate-y-0.5 overflow-hidden text-white bg-[rgba(255,255,255,0.06)] [backdrop-filter:blur(24px)] [-webkit-backdrop-filter:blur(24px)] border border-[rgba(255,255,255,0.15)] shadow-[0_8px_32px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.20)] hover:bg-[rgba(255,255,255,0.1)] hover:border-white/30"
-          >
-            <PhoneCall className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white/90 group-hover:text-white transition-colors drop-shadow-sm" />
-            <span className="drop-shadow-sm text-white/90 group-hover:text-white transition-colors">Call Now</span>
-            {/* Shimmer */}
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-          </a>
+        {/* Cascading dot trail — staggered fade-fall on exhale */}
+        {[0, 0.3, 0.6].map((delay, i) => (
+          <span
+            key={i}
+            style={{
+              display: "block",
+              width: i === 0 ? 4 : i === 1 ? 3 : 2,
+              height: i === 0 ? 4 : i === 1 ? 3 : 2,
+              borderRadius: "50%",
+              background: "hsl(37,90%,55%)",
+              animation: `scroll-dot-fall 2.4s ease-in-out ${delay}s infinite`,
+            }}
+          />
+        ))}
 
-        </div>
+        <style>{`
+          @keyframes scroll-breathe-label {
+            0%, 100% { opacity: 0.60; transform: scale(1); }
+            50%       { opacity: 1;    transform: scale(1.04); }
+          }
+          @keyframes scroll-dot-glow {
+            0%, 100% { box-shadow: 0 0 4px hsl(37,90%,55%); opacity: 0.7; }
+            50%       { box-shadow: 0 0 10px hsl(37,90%,55%), 0 0 20px rgba(245,166,35,0.5); opacity: 1; }
+          }
+          @keyframes scroll-breathe-svg {
+            0%, 100% { transform: scale(1);    filter: drop-shadow(0 0 4px rgba(245,166,35,0.30)); }
+            50%       { transform: scale(1.08); filter: drop-shadow(0 0 14px rgba(245,166,35,0.80)); }
+          }
+          @keyframes scroll-ripple {
+            0%   { transform: scale(0.85); opacity: 0.75; }
+            65%  { transform: scale(1.60); opacity: 0; }
+            100% { transform: scale(1.60); opacity: 0; }
+          }
+          @keyframes scroll-dot-fall {
+            0%, 15% { opacity: 0;    transform: translateY(-3px); }
+            45%      { opacity: 0.90; transform: translateY(1px); }
+            80%      { opacity: 0.35; transform: translateY(5px); }
+            100%     { opacity: 0;    transform: translateY(7px); }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            [style*="scroll-breathe-label"],
+            [style*="scroll-dot-glow"],
+            [style*="scroll-breathe-svg"],
+            [style*="scroll-ripple"],
+            [style*="scroll-dot-fall"] { animation: none !important; }
+          }
+        `}</style>
       </div>
 
       {/* Wave bottom */}
       <div className="absolute bottom-[-1.5px] left-0 right-0 z-20 pointer-events-none overflow-visible">
-        <svg 
-          viewBox="0 0 1440 80" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg" 
-          className="w-full block scale-y-[1.05] translate-y-[0.5px]" 
+        <svg
+          viewBox="0 0 1440 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full block scale-y-[1.05] translate-y-[0.5px]"
           preserveAspectRatio="none"
           suppressHydrationWarning
         >
