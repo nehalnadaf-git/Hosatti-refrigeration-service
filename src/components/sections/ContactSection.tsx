@@ -1,6 +1,6 @@
 // src/components/sections/ContactSection.tsx
 "use client";
-import { MapPin, Phone, MessageCircle, Clock, CreditCard } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Clock, CreditCard, Navigation2 } from "lucide-react";
 import { openWhatsApp } from "@/lib/whatsapp";
 import { BUSINESS } from "@/lib/constants";
 import ScrollReveal from "@/components/shared/ScrollReveal";
@@ -58,6 +58,23 @@ export default function ContactSection() {
                   </div>
                 </div>
               ))}
+
+              {/* Get Directions button */}
+              <a
+                href={BUSINESS.social.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                id="contact-get-directions-btn"
+                className="group flex items-center justify-center gap-2.5 w-full rounded-2xl border border-yellow-400/30 px-5 py-4 font-body font-bold text-[13px] uppercase tracking-[0.1em] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                style={{
+                  background: "linear-gradient(135deg, hsl(37,92%,52%), hsl(30,98%,45%))",
+                  color: "hsl(216,50%,10%)",
+                  boxShadow: "0 4px 18px rgba(245,166,35,0.25)",
+                }}
+              >
+                <Navigation2 className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                Get Directions
+              </a>
             </div>
           </ScrollReveal>
 

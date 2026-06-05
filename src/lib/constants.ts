@@ -34,6 +34,7 @@ export const BUSINESS = {
   url: "https://hosatti.com",
   social: {
     google: "CQpHRE2LyvxOEBM",
+    mapUrl: "https://maps.app.goo.gl/YUcpGz6uZuw4b4YJ8",
   },
 } as const;
 

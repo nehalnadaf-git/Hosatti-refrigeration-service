@@ -6,7 +6,8 @@ import WhatsAppCTA from "@/components/shared/WhatsAppCTA";
 import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/shared/ContactForm";
 import ScrollReveal from "@/components/shared/ScrollReveal";
-import { MapPin, Phone, Clock, CreditCard } from "lucide-react";
+import { MapPin, Phone, Clock, CreditCard, Navigation2 } from "lucide-react";
+import { BUSINESS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Contact Hosatti Refrigeration Service Dharwad | Call or WhatsApp",
@@ -70,7 +71,7 @@ export default function ContactPage() {
                   <div className="flex flex-col gap-4">
                     {[
                       { icon: Phone, label: "Phone & WhatsApp", value: "+91-7899472430", href: "tel:+917899472430" },
-                      { icon: MapPin, label: "Workshop Address", value: "Jaya Nagar, Opp Gurukul Academy, Saptapur Last Stop, Jay Nagar, Dharwad – 580001", href: "https://maps.google.com/?q=15.450056,74.9886131" },
+                      { icon: MapPin, label: "Workshop Address", value: "Jaya Nagar, Opp Gurukul Academy, Saptapur Last Stop, Jay Nagar, Dharwad – 580001", href: BUSINESS.social.mapUrl },
                       { icon: Clock, label: "Business Hours", value: "Mon–Sat: 9:30 AM – 7:00 PM\nSunday: 9:30 AM – 1:00 PM", href: null },
                       { icon: CreditCard, label: "Payment", value: "Cash, UPI, Google Pay, Paytm", href: null },
                     ].map(({ icon: Icon, label, value, href }) => (
@@ -91,6 +92,23 @@ export default function ContactPage() {
                       </div>
                     ))}
                   </div>
+
+                  {/* Get Directions button */}
+                  <a
+                    href={BUSINESS.social.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    id="contact-page-get-directions-btn"
+                    className="group flex items-center justify-center gap-2.5 w-full rounded-2xl border border-yellow-400/30 px-5 py-4 font-body font-bold text-[13px] uppercase tracking-[0.1em] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg mt-2"
+                    style={{
+                      background: "linear-gradient(135deg, hsl(37,92%,52%), hsl(30,98%,45%))",
+                      color: "hsl(216,50%,10%)",
+                      boxShadow: "0 4px 18px rgba(245,166,35,0.25)",
+                    }}
+                  >
+                    <Navigation2 className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    Get Directions
+                  </a>
 
                   {/* Map */}
                   <div className="mt-6 rounded-2xl overflow-hidden border border-border/40 shadow-sm h-[220px]">

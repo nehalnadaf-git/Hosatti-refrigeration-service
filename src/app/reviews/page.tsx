@@ -6,6 +6,7 @@ import PageHero from "@/components/shared/PageHero";
 import WhatsAppCTA from "@/components/shared/WhatsAppCTA";
 import Footer from "@/components/layout/Footer";
 import ScrollReveal, { StaggerItem } from "@/components/shared/ScrollReveal";
+import { BUSINESS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Customer Reviews — Hosatti Refrigeration Service Dharwad",
@@ -165,7 +166,7 @@ export default function ReviewsPage() {
                   Your review helps other Dharwad families find trusted appliance repair. It takes just 2 minutes on Google.
                 </p>
                 <a
-                  href="https://g.page/r/CQpHRE2LyvxOEBM/review"
+                   href={`https://g.page/r/${BUSINESS.social.google}/review`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl px-6 py-3 font-body font-bold text-[13px] uppercase tracking-[0.07em] transition-all duration-300 hover:-translate-y-0.5"
