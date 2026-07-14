@@ -471,3 +471,7 @@ export const LOCATIONS: LocationData[] = [
 export function getLocationBySlug(slug: string): LocationData | undefined {
   return LOCATIONS.find((l) => l.slug === slug);
 }
+
+export function getLocationByName(name: string): LocationData | undefined {
+  return LOCATIONS.find((l) => l.name === name);
+}

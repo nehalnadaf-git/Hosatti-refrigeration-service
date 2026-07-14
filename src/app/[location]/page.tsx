@@ -1,7 +1,8 @@
 // src/app/[location]/page.tsx
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { LOCATIONS, getLocationBySlug } from "@/lib/locations";
+import Link from "next/link";
+import { LOCATIONS, getLocationBySlug, getLocationByName } from "@/lib/locations";
 import { SERVICES } from "@/lib/services";
 import { SEO } from "@/lib/seo";
 import PageHero from "@/components/shared/PageHero";
@@ -176,11 +177,23 @@ export default async function LocationPage({ params }: { params: Promise<{ locat
                 We also serve these areas near {loc.name}:
               </p>
               <div className="flex flex-wrap gap-2.5">
-                {loc.nearbyAreas.map((area) => (
-                  <span key={area} className="font-body text-[13px] font-medium px-4 py-2 rounded-full border border-border/50 bg-white/80 text-foreground">
-                    {area}, Dharwad
-                  </span>
-                ))}
+                {loc.nearbyAreas.map((area) => {
+                  const nearbyLoc = getLocationByName(area);
+                  const badgeClass = "font-body text-[13px] font-medium px-4 py-2 rounded-full border border-border/50 bg-white/80 text-foreground transition-colors duration-200";
+                  return nearbyLoc ? (
+                    <Link
+                      key={area}
+                      href={`/${nearbyLoc.slug}`}
+                      className={`${badgeClass} hover:border-yellow-400/50 hover:text-navy`}
+                    >
+                      {area}, Dharwad
+                    </Link>
+                  ) : (
+                    <span key={area} className={badgeClass}>
+                      {area}, Dharwad
+                    </span>
+                  );
+                })}
               </div>
             </ScrollReveal>
           </div>
